@@ -1,5 +1,6 @@
 class BreweriesController < ApplicationController
-  before_action :set_brewery, only: [:show, :edit, :update, :destroy]
+  before_action :set_brewery, only: [:show]
+  before_action :set_brewery_id, only: [:edit, :update, :destroy]
   before_action :must_be_admin, only: [:edit, :new]
 
   # GET /breweries
@@ -66,6 +67,10 @@ class BreweriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_brewery
       @brewery = Brewery.find_by(slug: params[:id])
+    end
+
+    def set_brewery_id
+      @brewery = Brewery.find_by(id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
