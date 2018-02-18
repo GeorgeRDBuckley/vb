@@ -24,7 +24,4 @@ class Brewery < ApplicationRecord
         self.slug = name.parameterize
     end
 
-    def to_param
-        slug
-    end
 end
