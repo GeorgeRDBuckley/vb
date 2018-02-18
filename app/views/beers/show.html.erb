@@ -1,0 +1,50 @@
+<%- title "Is #{@beer.name} by #{@beer.brewery.name} Vegan?" %>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+    <li class="breadcrumb-item"><%= link_to "Breweries", breweries_path %></li>
+    <li class="breadcrumb-item"><%= link_to @beer.brewery.name, main_brewery_path(@beer.brewery.slug) %></li>
+    <li class="breadcrumb-item"><%= link_to @beer.name, main_beer_path(@beer) %></li>
+  </ol>
+</nav>
+
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'beer-show-sidebar' %>
+  </div>
+<div class="col-md-9">
+
+<div class="row text-center">
+  <div class="col-md-12 bottom_border">
+  <% if @beer.is_vegan %>
+    <h2 class="vegan_status vegan"><%= @beer.name %> by <%= @beer.brewery.name %> is Vegan.</h2>
+  <% else %>
+    <h2 class="vegan_status not_vegan"><%= @beer.name %> by <%= @beer.brewery.name %> isn't Vegan.</h2>
+      <% if @beer.is_vegetarian %>
+        <h4 class="vegan">but is suitable for Vegetarians.</h4>
+      <% end %>
+  <% end %>
+  </div>
+</div>
+
+<% if @beer.filtered %>
+  <i class="fas fa-tint"></i> Filtered
+<% end %>
+<h2>Similar Vegan Beers</h2>
+<div class="row">
+<% if @similar_beers.count === 0 %>
+<p>No similar beers in our database!</p>
+<% else %>
+<% @similar_beers.each do |sim_beer| %>
+<div class="col-md-3 text-center margin_10_10">
+        <%= link_to main_beer_path(sim_beer.brewery.slug, sim_beer.beer_slug) do %>
+          <img src="<%= sim_beer.beer_image(:thumb) %>" alt="<%= sim_beer.name %>, <%= sim_beer.brewery.name %>" class="img-thumbnail <%= vegan_border_colour(sim_beer) %>">
+        <% end %>
+      </div>
+<% end %>
+<% end %>
+</div>
+
+<%= link_to 'Edit', edit_beer_path(Beer.find_by(slug: params[:id])) %> |
+<%= link_to 'Back', main_brewery_path(@beer.brewery.slug) %>
+</div>

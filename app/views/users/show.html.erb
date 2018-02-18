@@ -1,0 +1,31 @@
+<%- title "#{@user.username}'s favourite beers. Which ones are Vegan?" %>
+<div class="row">
+  <div class="col-md-3 col-sm-12 order-2 order-sm-1">
+    <%= render 'profile-show-sidebar' %>
+  </div>
+<div class="col-md-9 content-margin">
+<div class="user-likes-deck">
+<h1>Beers I've Liked</h1>
+<div class="row">
+  <% @user.likes.order("created_at DESC").each do |like| %>
+  <% beer = Beer.find_by(id: like.beer_id)%>
+    <%= link_to main_beer_path(beer.brewery.slug, beer.slug), class: "col-md-4 likes-main-col" do %>
+      <div class= "likes <%= bg_colour(beer) %>">
+        <div class="col-md-4 likes_side text-center">
+          <img class="img-thumbnail" src="<%= beer.beer_image.url(:large) %>%">
+        </div>
+      
+      
+      <div class="col-md-8 likes_main Aligner">
+      <div class="likes_main_text">
+      <div class="like_name"><%= beer.name %></div>
+      </div>
+      <p><%= beer.brewery.name %></p>
+      <p><%= time_ago_in_words(like.created_at) %></p>
+      </div>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+</div>

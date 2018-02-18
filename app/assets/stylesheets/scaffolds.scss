@@ -1,0 +1,574 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #f5f5f5;
+  color: #333;
+  margin: 33px;
+  font-size: 1.2em;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+    height: 100%;
+  }
+}
+
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 0 5px 7px;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+label {
+  display: block;
+}
+
+.navbar {
+  border-radius: 0.3em
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 54px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+
+  &:hover {
+    border-radius: 0.3em 0 0 0.3em;
+  }
+}
+
+.logo_icon {
+  margin-right: 0.5em;
+}
+
+.logo_name {
+
+}
+
+.navbar {
+  padding: 0px 0.5em 0 0;
+  margin-bottom: 33px;
+}
+
+.sidebar {
+  background-color: white;
+    border: 1px #ccc solid;
+    border-color: #ccc;
+    border-radius: 0.2em;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: white;
+    margin-bottom: 1em;
+}
+
+.sidebar-title {
+  text-align: center;
+    border-bottom: 1px #eee solid;
+    border-color: #eee;
+    padding: 1.3em;
+    font-size: 16px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.emoji-plus {
+  font-size: 14px;
+}
+
+.beer {
+  padding: 1em 0 1em 1em;
+}
+
+.beer-name {
+  text-decoration: none;
+    margin-right: 0.5em;
+    color: black;
+    font-size: 0.8em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 500;
+}
+
+.brewery-name {
+  display: block;
+  text-decoration: none;
+  color: #999;
+  font-size: 0.7em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.Aligner
+{
+  margin: auto auto;
+  width: 40%;
+}   
+
+.Aligner > div
+{
+    display: inline-block;
+    width: 100%;
+}
+
+h1 {
+  display: block;
+  font-size: 1.5em;
+  -webkit-margin-before: 0.3em;
+  -webkit-margin-after: 0.7em;
+  -webkit-margin-start: 0.5em;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+}
+
+h2 {
+  display: block;
+  font-size: 1.25em;
+  -webkit-margin-before: 0.3em;
+  -webkit-margin-after: 0.3em;
+  -webkit-margin-start: 0.5em;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+}
+
+.vegan_status {
+  font-size: 2.5em;
+}
+
+.vegan {
+  color: #27ae60;
+}
+
+.not_vegan {
+  color: #c0392b;
+}
+
+
+.home-items {
+  padding-bottom: 2em;
+  padding-top: 1em;
+  border-bottom: 2px #ccc solid;
+  border-color: #ececec;
+}
+
+.home-items:first-child {
+  padding-top: 0;
+}
+
+.view-more {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+    padding: .25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+  display: flex;
+  max-width: 210px;
+    margin: auto;
+}
+
+.btn-view-more {
+  background-color: #00cf6a;
+  color: white;
+  font-size: 0.7em;
+  padding: 1em;
+  text-transform: uppercase;
+  &:visited {
+    color: white;
+  }
+}
+
+.margin_10_10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.bottom_border {
+  border-bottom: 2px #eee solid;
+    border-color: #eee;
+}
+
+.breadcrumb {
+  margin-top: 0.05em;
+}
+
+.beer-img {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.sidebar-item-container {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  background-color: white;
+  border: 1px #ccc solid;
+    border-color: #ccc;
+    border-radius: 0.2em;
+}
+
+.sidebar-item {
+  text-align: center;
+  border-bottom: 1px #eee solid;
+  border-color: #eee;
+  padding: 1.3em;
+  font-size: 16px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.content-margin {
+  margin-top: 0.1em;
+  & p {
+    -webkit-margin-start: 1em;
+    -webkit-margin-before: 0.3em;
+    -webkit-margin-end: 1em;
+  }
+}
+
+.not_vegan_bg {
+  background-color: #c0392b;
+}
+
+.vegan_bg {
+  background-color: #27ae60;
+}
+
+.veggie_bg {
+  background-color: #f39c12;
+}
+
+.not_vegan_border {
+  border-bottom-style: solid;
+border-bottom-color: #c0392b;
+border-bottom-width: 3px;
+}
+
+.vegan_border {
+  border-bottom-style: solid;
+border-bottom-color: #27ae60;
+border-bottom-width: 3px;
+}
+
+.veggie_border {
+  border-bottom-style: solid;
+border-bottom-color: #f39c12;
+border-bottom-width: 3px;
+}
+
+.likes-circle {
+  background-color: white;
+  text-align: right;
+  border-bottom: 1px #eee solid;
+  border-color: #eee;
+  padding: 1.3em;
+  font-size: 16px;
+  margin-top: -110px;
+  margin-bottom: 1em;
+  right: 30px;
+  box-shadow: rgba(23,43,99,0.26) 0 7px 42px;
+  position: absolute;
+  border-radius: 50px;
+}
+
+.likes {
+  display: flex;
+  border: 1px #ccc solid;
+  border-color: #ccc;
+  border-radius: 0.2em;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-color: transparent;
+  margin-bottom: 1em;
+  padding: 1em 1em;
+  text-decoration: none;
+  border-radius: 0.3em;
+  font-size: 1em;
+  color: white;
+}
+
+.likes_side {
+  font-size: 4em;
+}
+
+.avatar {
+  display: block;
+  height: 1em;
+  width: 1em;
+  border-radius: 1em;
+}
+
+.likes_main {
+  margin-left: 0.5em;
+  width: 100%;
+  overflow: hidden;
+}
+
+.likes_main_text {
+  display: flex;
+  justify-content: space-between;
+  align-content: middle;
+  color: rgba(255,255,255,0.5);
+}
+
+.likes_main p {
+  margin: 0;
+}
+
+.likes_date {
+  font-size: 0.8em;
+}
+
+.likes-main-col:hover {
+  background-color: transparent;
+}
+
+.likes:hover {
+  box-shadow: rgba(169,169,169,1) 0 7px 42px;
+}
+
+.brewery-facebook, .profile-facebook {
+  background-color: #3b5998;
+  & a {
+    color: white !important;
+  }
+  & a:hover {
+    background-color: #8b9dc3;
+  }
+}
+
+.brewery-instagram, .profile-instagram {
+  background-color: #fb3958;
+  & a {
+    color: white !important;
+  }
+  & a:hover {
+    background-color: #fb6079;
+  }
+}
+
+.brewery-twitter, .profile-twitter {
+  background-color: #00aced;
+  & a {
+    color: white !important;
+  }
+  & a:hover {
+    background-color: #32bcf0;
+  }
+}
+
+.results {
+  background: white;
+    border-radius: 10px;
+}
+
+.card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0.2rem solid #f7f7f9;
+  border-radius: 0.25rem;
+}
+
+.card-body {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.beer-result a, .brewery-result a {
+  color: #343a40;
+  display: block;
+  padding: 8px;
+}
+
+.beer-result .beer-thumbnail, .brewery-result .brewery-thumbnail {
+  position: relative;
+}
+
+.beer-result a:hover, .brewery-result a:hover {
+background-color: #fafafa;
+}
+
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+
+.hovereffect .overlay {
+  width: 96%;
+  height: 96%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.05);
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+}
+
+.hovereffect:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.05);
+  opacity: 1;
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  font-size: 17px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-transform: translateY(45px);
+  -ms-transform: translateY(45px);
+  transform: translateY(45px);
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.hovereffect:hover h2 {
+  -webkit-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  transform: translateY(5px);
+  margin:0px;
+}
+
+.overlay {
+  margin: 0.25em;
+}
+
+.beer-name-hover {
+  color: white;
+  font-size: 20px;
+  top: 45%;
+  left: 36%;
+  text-align: center;
+  position: absolute;
+}
+
+.btn-nav-sign-up {
+  background-color: #00cf6a;
+    color: white !important;
+    font-size: 1em;
+    text-transform: uppercase;
+    margin-left: 0.5em;
+}
+
+.btn-nav-standard {
+  background: transparent;
+}
+
+.search-icon-container {
+  margin: auto auto;
+}
+
+.search-icon {
+  color: white;
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+#search-form {
+  display: none;
+}

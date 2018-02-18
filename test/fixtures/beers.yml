@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  style: MyString
+  abv: MyString
+  description: MyString
+  beer_image: 
+  is_vegan: false
+  is_vegetarian: false
+  filtered: false
+  bootle_conditioned: false
+  can_conditioned: false
+  organic: false
+  gluten_free: false
+  alcohol_free: false
+  serving_temp: MyString
+
+two:
+  name: MyString
+  style: MyString
+  abv: MyString
+  description: MyString
+  beer_image: 
+  is_vegan: false
+  is_vegetarian: false
+  filtered: false
+  bootle_conditioned: false
+  can_conditioned: false
+  organic: false
+  gluten_free: false
+  alcohol_free: false
+  serving_temp: MyString

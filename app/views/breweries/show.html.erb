@@ -1,0 +1,52 @@
+<%- title "Are #{@brewery.name} Beers Vegan?" %>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+    <li class="breadcrumb-item"><%= link_to "Breweries", breweries_path %></li>
+    <li class="breadcrumb-item active"><%= link_to @brewery.name, main_brewery_path(@brewery) %></li>
+  </ol>
+</nav>
+
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'brewery-show-sidebar' %>
+  </div>
+<div class="col-md-9 content-margin">
+<p>
+  <%= @brewery.description.html_safe %>
+</p>
+
+
+<h1>Beers</h1>
+
+<div class="row">
+   <% @brewery.beers.each do |beer| %>
+      <div class="col-md-3 text-center margin_10_10">
+      <div class="hovereffect">
+        <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
+          <img src="<%= beer.beer_image(:large) %>" alt="<%= beer.name %>, <%= beer.brewery.name %>" class="img-thumbnail <%= vegan_border_colour(beer) %>">
+          <div class="overlay">
+               <h2 class="beer-name-hover"><%= beer.name %></h2>
+            </div>
+        <% end %>
+      </div>
+      </div>
+    <% end %>
+</p>
+  </div>
+<% if @brewery.geocoded? %>
+  <h1>Nearby Breweries</h1>
+  <% @brewery.nearbys(30).each do |brewery| %>
+    <div class="row">
+      <div class="col-md-3 text-center margin_10_10 brewery-home">
+        <%= link_to main_brewery_path(brewery.slug) do %>
+          <img src="<%= brewery.brewery_logo(:thumb) %>" alt="<%= brewery.name %>" class="img-thumbnail" style="<%= brewery_colour_border(brewery) %>">
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>  
+
+<%= link_to 'Edit', edit_brewery_path(@brewery.id) %> |
+<%= link_to 'Back', breweries_path %>
+</div>

@@ -1,0 +1,87 @@
+<%- title "Search results for #{params[:query]}, is #{params[:query]} vegan?" %>
+<div class="container">
+    <div class="col-md-12">
+        <div>
+            <h1>Search results for "<%= params[:query] %>"</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Beers</h2>
+                        <hr>
+
+                        <div class="beer-result">
+                        <% if @beers.empty? %>
+                            No Beers found!
+                        <% else %>
+                        <% @beers.each do |beer| %>
+                        <%= link_to main_beer_path(beer.brewery.slug, beer.slug), class: vegan_border_colour(beer) do %>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                <div class="beer-thumbnail">
+                                    <img class="img-fluid" src="<%= beer.beer_image(:thumb) %>" alt="45bde4a30a27597fdb14121c75b3b5ec0610cc7e">
+                                </div>
+                                </div>
+
+                                <div class="col Aligner">
+                                <h3 style="margin-top:0px"> 
+                                    <%= beer.name %>
+                                </h3>
+                                <div class="text-muted brewery-name" style="margin-bottom: 10px;"><i class="fas fa-industry"></i> <%= beer.brewery.name %></div>
+                                <div class="text-muted"><small>
+                                    <i class="fa fa-heart"></i> <%= beer.likers.count %> Likes
+                                    </small></div>
+                                </div>
+                            </div>
+                        <% end %>
+                            <hr>
+                        <% end %>
+                        <% end %>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Breweries</h2>
+                        <hr>
+
+                        <div class="beer-result">
+                        <% if @breweries.empty? %>
+                            No Breweries found!
+                        <% else %>
+                        <% @breweries.each do |brewery| %>
+                        <%= link_to main_brewery_path(brewery.slug), style: brewery_colour_border(brewery) do %>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                <div class="beer-thumbnail">
+                                    <img class="img-fluid" src="<%= brewery.brewery_logo(:thumb) %>" alt="45bde4a30a27597fdb14121c75b3b5ec0610cc7e">
+                                </div>
+                                </div>
+
+                                <div class="col Aligner">
+                                <h3 style="margin-top:0px"> 
+                                    <%= brewery.name %>
+                                </h3>
+                                <div class="text-muted brewery-name" style="margin-bottom: 10px;"><i class="fas fa-percent"></i> <%= percentage_vegan(brewery) %> Vegan</div>
+                                <div class="text-muted"><small>
+                                    <i class="fas fa-location-arrow"></i> <%= brewery.city %>, <%= brewery.country %>
+                                    </small></div>
+                                </div>
+                            </div>
+                        <% end %>
+                            <hr>
+                        <% end %>
+                        <% end %>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

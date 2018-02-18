@@ -1,0 +1,58 @@
+      <div class="sidebar">
+        <div class="sidebar-title">
+          Recently favourited <span class="emoji-plus">❤️</span>
+        </div>
+        <div class="sidebar-content">
+        <% @recent_likes.each do |beer| %>
+            <% @beer = Beer.find_by(id: beer.beer_id)%>
+            <%= link_to main_beer_path(@beer.brewery.slug, @beer.slug) do %>
+          <div class="row beer">
+            <div class="col-md-4 col-6">
+              <img src="<%= @beer.beer_image(:thumb) %>" alt="<%= @beer.name %>, <%= @beer.brewery.name %>" class="img-thumbnail rounded-circle">
+            </div>
+            <div class="col-md-8 Aligner">
+              <div class="beer-name">
+                <%= @beer.name %>
+              </div>
+              <div class="brewery-name">
+                <%= @beer.brewery.name %>
+              </div>
+              <div class="brewery-name">
+                <%= @beer.likers.count %>
+                <% if @beer.likers.count === 1 %>
+                    like
+                <%else%> 
+                    likes
+                <%end%>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="sidebar-title">
+          Recent added <span class="emoji-plus">➕</span>
+        </div>
+        <div class="sidebar-content">
+        <% Beer.limit(4).order('id desc').each do |beer| %>
+            <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
+          <div class="row beer">
+            <div class="col-md-4 col-6">
+              <img src="<%= beer.beer_image(:thumb) %>" alt="<%= beer.name %>, <%= beer.brewery.name %>" class="img-thumbnail rounded-circle">
+            </div>
+            <div class="col-md-8 Aligner">
+              <div class="beer-name">
+                <%= beer.name %>
+              </div>
+              <div class="brewery-name">
+                <%= beer.brewery.name %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+        </div>
+      </div>

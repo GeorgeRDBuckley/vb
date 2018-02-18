@@ -1,0 +1,18 @@
+<%- title "Which of these breweries are vegan?" %>
+
+<h1>Breweries</h1>
+
+<div class="row">
+<% @breweries.each do |brewery| %>
+  
+    <div class="card" style="width: 18rem; <%= brewery_colour_border(brewery) %>">
+    <%= link_to main_brewery_path(brewery.slug) do %>
+      <img class="card-img-top" src="<%= brewery.brewery_logo(:large) %>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= brewery.name %></h5>
+        <p class="card-text"><%= brewery.city %>, <%= brewery.country %></p>
+      </div>
+    <% end %>
+    </div>
+<% end %>
+</div>

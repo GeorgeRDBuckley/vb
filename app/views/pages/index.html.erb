@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-lg-3 order-lg-1 col-md-12 order-md-2 col-sm-12 order-sm-2 col-12 order-2">
+    <%= render 'sidebar' %>
+  </div>
+<div class="col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 order-sm-1 col-12 order-1">
+<div class="home-items">
+  <h1>Beers</h1>
+
+  <div class="row">
+    <% @beers.each do |beer| %>
+      <div class="col-md-3 col-6 text-center margin_10_10">
+        <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
+          <img src="<%= beer.beer_image(:thumb) %>" alt="<%= beer.name %>, <%= beer.brewery.name %>" class="img-thumbnail <%= vegan_border_colour(beer) %>">
+        <% end %>
+      </div>
+    <% end %>
+    <div class="col-md-3 col-6 text-center margin_10_10">
+      <div class="view-more">
+          <div class="view-more-button">
+            <%= link_to "View More", breweries_path, class: "btn btn-view-more" %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home-items">
+  <h1>Breweries</h1>
+
+  <div class="row">
+    <% @breweries.each do |brewery| %>
+      <div class="col-md-3 col-6 text-center margin_10_10 brewery-home">
+        <%= link_to main_brewery_path(brewery.slug) do %>
+          <img src="<%= brewery.brewery_logo(:thumb) %>" alt="<%= brewery.name %>" class="img-thumbnail" style="<%= brewery_colour_border(brewery) %>">
+        <% end %>
+      </div>
+    <% end %>
+    <div class="col-md-3 col-6 text-center margin_10_10">
+      <div class="view-more">
+          <div class="view-more-button">
+            <%= link_to "View More", beers_path, class: "btn btn-view-more" %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>

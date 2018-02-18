@@ -1,0 +1,41 @@
+    <img src="<%= @brewery.brewery_logo(:large) %>" alt="<%= @brewery.name %>" class="img-thumbnail beer-img" style="<%= brewery_colour_border(@brewery) %>">
+
+    <div class="sidebar">
+        <div class="sidebar-title">
+        <%= @brewery.name %>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-title brewery-percentage-vegan">
+            <%= percentage_vegan(@brewery) %> of Beers Vegan
+        </div>
+    </div>
+
+    <div class="sidebar-item-container">
+        <div class="sidebar-item brewery-location">
+            <%= @brewery.city %>, <%= @brewery.country %>
+        </div>
+
+        <div class="sidebar-item brewery-website">
+            <a href="http://<%= @brewery.website %>"><%= @brewery.website %></a>
+        </div>
+        <div class="sidebar-item brewery-telephone">
+            <a href="tel://<%= @brewery.telephone %>"><%= @brewery.telephone %></a>
+        </div>
+        <div class="sidebar-item brewery-email">
+            <a href="mailto://<%= @brewery.email %>"><%= @brewery.email %></a>
+        </div>
+    </div>
+
+    <div class="sidebar-item-container">
+        <div class="sidebar-item brewery-facebook">
+            <a href="http://facebook.com/<%= @brewery.facebook %>">Facebook</a>
+        </div>
+        <div class="sidebar-item brewery-instagram">
+            <a href="http://instagram.com/<%= @brewery.instagram %>">Instagram</a>
+        </div>
+        <div class="sidebar-item brewery-twitter">
+            <a href="http://twitter.com/<%= @brewery.twitter %>">Twitter</a>
+        </div>
+    </div>

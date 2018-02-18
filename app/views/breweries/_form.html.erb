@@ -1,0 +1,104 @@
+<%= form_with(model: brewery, local: true, multipart: true) do |form| %>
+  <% if brewery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(brewery.errors.count, "error") %> prohibited this brewery from being saved:</h2>
+
+      <ul>
+      <% brewery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :brewery_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address1 %>
+    <%= form.text_field :address1, id: :brewery_address1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address2 %>
+    <%= form.text_field :address2, id: :brewery_address2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :brewery_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :county_state %>
+    <%= form.text_field :county, id: :brewery_county_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip_postcode %>
+    <%= form.text_field :postcode, id: :brewery_zip_postcode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :brewery_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :brewery_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telephone %>
+    <%= form.text_field :telephone, id: :brewery_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :website %>
+    <%= form.text_field :website, id: :brewery_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :brewery_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :brewery_logo %>
+    <%= form.file_field :brewery_logo, id: :brewery_brewery_logo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :instagram %>
+    <%= form.text_field :instagram, id: :brewery_zip_postcode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :facebook %>
+    <%= form.text_field :facebook, id: :brewery_zip_postcode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :twitter %>
+    <%= form.text_field :twitter, id: :brewery_zip_postcode %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :latitude, id: :brewery_latitude, :hidden => true %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :longitude, id: :brewery_longitude, :hidden => true %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :slug, id: :brewery_country, :hidden => true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

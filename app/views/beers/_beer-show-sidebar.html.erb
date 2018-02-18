@@ -1,0 +1,40 @@
+<img src="<%= @beer.beer_image(:large) %>" alt="<%= @beer.name %>, <%= @beer.brewery.name %>" class="img-thumbnail beer-img <%= vegan_border_colour(@beer) %>">
+
+<div class="likes-circle">
+<% if user_signed_in? %>
+  <% if liked %>
+    <%= link_to unlike_beer_path(@beer),
+                          id: "like_#{@beer.id}",
+                          class: "glyphicon glyphicon-heart" do %>
+                            <i class="fas fa-heart" style="color: #c0392b"> </i> <%= @beer.likers.count %>
+                          <% end %>
+  <% else %>
+    <%= link_to like_beer_path(@beer),
+                          id: "like_#{@beer.id}",
+                          class: "glyphicon glyphicon-heart-empty" do %>
+                            <i class="fas fa-heart"> </i> <%= @beer.likers.count %>
+                          <% end %>
+  <%end%>
+<% else %>
+  <i class="fas fa-heart" style="color: #c0392b"></i> <%= @beer.likers.count %>
+<% end %>
+</div>
+
+      <div class="sidebar">
+        <div class="sidebar-title">
+          <%= @beer.name %>
+        </div>
+      </div>
+      <div class="sidebar-item-container">
+        <div class="sidebar-item beer-style">
+            <%= @beer.style %>
+          </div>
+
+          <div class="sidebar-item">
+            <%= @beer.abv %>% Alc
+          </div>
+
+          <div class="sidebar-item">
+            <%= @beer.brewery.name %>
+          </div>
+        </div>

@@ -1,0 +1,41 @@
+<img src="<%= @user.profile_img(:large) %>" class="img-thumbnail beer-img">
+
+      <div class="sidebar">
+        <div class="sidebar-title profile-name">
+          <%= @user.name %>
+        </div>
+      </div>
+
+      <div class="sidebar-item-container">
+        <% if @user.location.present? %>
+        <div class="sidebar-item profile-location">
+            <%= @user.location %>
+        </div>
+        <% end %>
+
+        <% if @user.bio.present? %>
+        <div class="sidebar-item profile-bio">
+            <%= @user.bio %>
+        </div>
+        <% end %>
+    </div>
+
+    <div class="sidebar-item-container">
+        <% if @user.facebook.present? %>
+        <div class="sidebar-item profile-facebook">
+            <a href="http://facebook.com/<%= @user.facebook %>">Facebook</a>
+        </div>
+        <% end %>
+
+        <% if @user.twitter.present? %>
+        <div class="sidebar-item profile-twitter">
+            <a href="http://twitter.com/<%= @user.twitter %>">Twitter</a>
+        </div>
+        <% end %>
+
+        <% if @user.instagram.present? %>
+        <div class="sidebar-item profile-instagram">
+            <a href="http://instagram.com/<%= @user.instagram %>">Instagram</a>
+        </div>
+        <% end %>
+      </div>
