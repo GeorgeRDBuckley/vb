@@ -1,6 +1,6 @@
 class BeersController < ApplicationController
-  before_action :set_beer, only: [:edit, :destroy, :like, :unlike, :liked?]
-  before_action :set_beer_show, only: [:show, :update]
+  before_action :set_beer, only: [:update, :edit, :destroy, :like, :unlike, :liked?]
+  before_action :set_beer_show, only: [:show]
   before_action :must_be_admin, only: [:edit, :new]
 
   # GET /beers
