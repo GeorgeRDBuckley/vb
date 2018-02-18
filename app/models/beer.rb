@@ -25,7 +25,4 @@ class Beer < ApplicationRecord
         self.slug = "#{name.parameterize}"
     end
 
-    def to_param
-        slug
-    end
 end

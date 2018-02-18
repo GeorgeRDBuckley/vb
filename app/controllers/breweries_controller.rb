@@ -45,10 +45,8 @@ class BreweriesController < ApplicationController
     respond_to do |format|
       if @brewery.update(brewery_params)
         format.html { redirect_to main_brewery_path(@brewery.slug), notice: 'Brewery was successfully updated.' }
-        format.json { render :show, status: :ok, location: @brewery }
       else
         format.html { render :edit }
-        format.json { render json: @brewery.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -75,7 +73,7 @@ class BreweriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brewery_params
-      params.require(:brewery).permit(:name, :address1, :address2, :city, :county, :postcode, :country, :email, :telephone, :website, :description, :brewery_logo, :slug, :latitude, :longitude)
+      params.require(:brewery).permit(:name, :address1, :address2, :city, :county, :postcode, :country, :email, :telephone, :website, :description, :brewery_logo, :slug, :latitude, :longitude, :twitter, :facebook, :instagram)
     end
 
     def must_be_admin

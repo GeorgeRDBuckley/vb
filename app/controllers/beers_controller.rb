@@ -45,7 +45,7 @@ class BeersController < ApplicationController
   def update
     respond_to do |format|
       if @beer.update(beer_params)
-        format.html { redirect_to @beer, notice: 'Beer was successfully updated.' }
+        format.html { redirect_to main_beer_path(@beer.brewery.slug, @beer.slug), notice: 'Beer was successfully updated.' }
         format.json { render :show, status: :ok, location: @beer }
       else
         format.html { render :edit }
@@ -77,8 +77,9 @@ class BeersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
     def set_beer
-      @beer = Beer.find_by(slug: params[:id])
+      @beer = Beer.find_by(id: params[:id])
     end
 
     def set_beer_show
