@@ -44,7 +44,7 @@ class BreweriesController < ApplicationController
   def update
     respond_to do |format|
       if @brewery.update(brewery_params)
-        format.html { redirect_to @brewery, notice: 'Brewery was successfully updated.' }
+        format.html { redirect_to main_brewery_path(@brewery.slug), notice: 'Brewery was successfully updated.' }
         format.json { render :show, status: :ok, location: @brewery }
       else
         format.html { render :edit }
