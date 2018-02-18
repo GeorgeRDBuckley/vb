@@ -36,7 +36,7 @@
   </div>
 <% if @brewery.geocoded? %>
   <h1>Nearby Breweries</h1>
-  <% @brewery.nearbys(50).each do |brewery| %>
+  <% @brewery.nearbys(100).each do |brewery| %>
     <div class="row">
       <div class="col-md-3 text-center margin_10_10 brewery-home">
         <%= link_to main_brewery_path(brewery.slug) do %>
