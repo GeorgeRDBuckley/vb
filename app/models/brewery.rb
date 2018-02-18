@@ -2,7 +2,7 @@ class Brewery < ApplicationRecord
     searchkick
     
     before_save :update_slug
-    validates :slug, presence: :true, uniqueness: { case_sensitive: false }
+    validates :slug, uniqueness: { case_sensitive: false }
 
     has_attached_file :brewery_logo, styles: {:thumb => "200x200", small: "64x64", med: "300x300", large: "400x400" }, :convert_options => {
         :thumb => "-resize 70%x70% -gravity center -background white -extent 200x200", :large => "-resize 70%x70% -gravity center -background white -extent 400x400" }, :default_url => "/images/:style/missing.png"
