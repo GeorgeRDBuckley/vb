@@ -1,19 +1,19 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://localhost:3000"
+SitemapGenerator::Sitemap.default_host = "https://isitveganbeer.com"
 
 SitemapGenerator::Sitemap.create do
 
   Beer.find_each do |beer|
     add main_beer_path(beer.brewery.slug, beer.slug), :lastmod => beer.updated_at, 
     :images => [{
-    :loc => "http://localhost:3000#{beer.beer_image(:large)}",
+    :loc => "https://isitveganbeer.com#{beer.beer_image(:large)}",
     :title => "Is #{beer.name} by #{beer.brewery.name} Vegan?" }]
   end
 
   Brewery.find_each do |brewery|
     add main_brewery_path(brewery), :lastmod => brewery.updated_at, 
     :images => [{
-    :loc => "http://localhost:3000#{brewery.brewery_logo(:large)}",
+    :loc => "https://isitveganbeer.com#{brewery.brewery_logo(:large)}",
     :title => "Are #{brewery.name} beers Vegan?"}]
   end
 
