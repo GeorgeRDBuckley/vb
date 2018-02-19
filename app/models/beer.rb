@@ -4,9 +4,7 @@ class Beer < ApplicationRecord
     has_many :users, through: :beer_likes, dependent: :destroy
     before_save :update_beer_slug
 
-    has_attached_file :beer_image, styles: {:thumb => "200x200", small: "64x64", med: "300x300", large: "400x400" }, :convert_options => {
-        :thumb => "-resize 90%x90% -gravity center -background white -extent 200x200", :large => "-resize 90%x90% -gravity center -background white -extent 400x400" }, :default_url => "/images/:style/missing.png"
-    validates_attachment_content_type :beer_image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+    mount_uploader :beer_image, BeerImageUploader, mount_on: :beer_image_file_name
     belongs_to :brewery
 
     searchkick

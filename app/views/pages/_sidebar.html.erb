@@ -8,7 +8,7 @@
             <%= link_to main_beer_path(@beer.brewery.slug, @beer.slug) do %>
           <div class="row beer">
             <div class="col-md-4 col-6">
-              <img src="<%= @beer.beer_image(:thumb) %>" alt="<%= @beer.name %>, <%= @beer.brewery.name %>" class="img-thumbnail rounded-circle">
+              <img src="<%= @beer.beer_image %>" alt="<%= @beer.name %>, <%= @beer.brewery.name %>" class="img-thumbnail rounded-circle">
             </div>
             <div class="col-md-8 Aligner">
               <div class="beer-name">
@@ -41,7 +41,7 @@
             <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
           <div class="row beer">
             <div class="col-md-4 col-6">
-              <img src="<%= beer.beer_image(:thumb) %>" alt="<%= beer.name %>, <%= beer.brewery.name %>" class="img-thumbnail rounded-circle">
+              <img src="<%= beer.beer_image %>" alt="<%= beer.name %>, <%= beer.brewery.name %>" class="img-thumbnail rounded-circle">
             </div>
             <div class="col-md-8 Aligner">
               <div class="beer-name">

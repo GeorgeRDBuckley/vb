@@ -10,7 +10,7 @@
     <% @beers.each do |beer| %>
       <div class="col-md-3 col-6 text-center margin_10_10">
         <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
-          <img src="<%= beer.beer_image(:thumb) %>" alt="<%= beer.name %>, <%= beer.brewery.name %>" class="img-thumbnail <%= vegan_border_colour(beer) %>">
+          <img src="<%= beer.beer_image.thumb %>" alt="<%= beer.name %>, <%= beer.brewery.name %>" class="img-thumbnail <%= vegan_border_colour(beer) %>">
         <% end %>
       </div>
     <% end %>
@@ -31,7 +31,7 @@
     <% @breweries.each do |brewery| %>
       <div class="col-md-3 col-6 text-center margin_10_10 brewery-home">
         <%= link_to main_brewery_path(brewery.slug) do %>
-          <img src="<%= brewery.brewery_logo(:thumb) %>" alt="<%= brewery.name %>" class="img-thumbnail" style="<%= brewery_colour_border(brewery) %>">
+          <img src="<%= brewery.brewery_logo.thumb %>" alt="<%= brewery.name %>" class="img-thumbnail" style="<%= brewery_colour_border(brewery) %>">
         <% end %>
       </div>
     <% end %>

@@ -1,4 +1,4 @@
-<img src="<%= @beer.beer_image(:large) %>" alt="<%= @beer.name %>, <%= @beer.brewery.name %>" class="img-thumbnail beer-img <%= vegan_border_colour(@beer) %>">
+<img src="<%= @beer.beer_image.thumb %>" alt="<%= @beer.name %>, <%= @beer.brewery.name %>" class="img-thumbnail beer-img <%= vegan_border_colour(@beer) %>">
 
 <div class="likes-circle">
 <% if user_signed_in? %>

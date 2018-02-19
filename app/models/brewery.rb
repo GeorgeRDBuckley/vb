@@ -4,9 +4,7 @@ class Brewery < ApplicationRecord
     before_save :update_slug
     validates :slug, uniqueness: { case_sensitive: false }
 
-    has_attached_file :brewery_logo, styles: {:thumb => "200x200", small: "64x64", med: "300x300", large: "400x400" }, :convert_options => {
-        :thumb => "-resize 70%x70% -gravity center -background white -extent 200x200", :large => "-resize 70%x70% -gravity center -background white -extent 400x400" }, :default_url => "/images/:style/missing.png"
-    validates_attachment_content_type :brewery_logo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+    mount_uploader :brewery_logo, BreweryLogoUploader, mount_on: :brewery_logo_file_name
     has_many :beers
 
     geocoded_by :address

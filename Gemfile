@@ -9,6 +9,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem "paperclip", "~> 5.2.1"
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'devise'
 
 gem 'jquery-rails'

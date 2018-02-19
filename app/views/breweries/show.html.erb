@@ -24,7 +24,7 @@
       <div class="col-md-3 text-center margin_10_10">
       <div class="hovereffect">
         <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
-          <img src="<%= beer.beer_image(:large) %>" alt="<%= beer.name %>, <%= beer.brewery.name %>" class="img-thumbnail <%= vegan_border_colour(beer) %>">
+          <img src="<%= beer.beer_image %>" alt="<%= beer.name %>, <%= beer.brewery.name %>" class="img-thumbnail <%= vegan_border_colour(beer) %>">
           <div class="overlay">
                <h2 class="beer-name-hover"><%= beer.name %></h2>
             </div>
@@ -40,7 +40,7 @@
     <div class="row">
       <div class="col-md-3 text-center margin_10_10 brewery-home">
         <%= link_to main_brewery_path(brewery.slug) do %>
-          <img src="<%= brewery.brewery_logo(:thumb) %>" alt="<%= brewery.name %>" class="img-thumbnail" style="<%= brewery_colour_border(brewery) %>">
+          <img src="<%= brewery.brewery_logo %>" alt="<%= brewery.name %>" class="img-thumbnail" style="<%= brewery_colour_border(brewery) %>">
         <% end %>
       </div>
     </div>

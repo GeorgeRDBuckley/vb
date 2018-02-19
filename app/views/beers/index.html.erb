@@ -6,7 +6,7 @@
 <% @beers.each do |beer| %>
 <div class="card" style="width: 18rem;">
     <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
-      <img class="card-img-top" src="<%= beer.beer_image(:large) %>" alt="Card image cap">
+      <img class="card-img-top" src="<%= beer.beer_image %>" alt="Card image cap">
       <div class="card-body <%= vegan_border_colour(beer) %>">
         <h5 class="card-title"><%= beer.name %></h5>
         <p class="card-text"><%= beer.brewery.name %></p>
