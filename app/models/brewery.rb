@@ -5,7 +5,7 @@ class Brewery < ApplicationRecord
     validates :slug, uniqueness: { case_sensitive: false }
 
     mount_uploader :brewery_logo, BreweryLogoUploader, mount_on: :brewery_logo_file_name
-    has_many :beers
+    has_many :beers, :dependent => :destroy
 
     geocoded_by :address
     after_validation :geocode, if: :address_changed?

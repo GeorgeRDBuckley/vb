@@ -1,5 +1,17 @@
-<h1>New Beer</h1>
-
-<%= render 'form', beer: @beer %>
+<div class="main-container">
+<section class="space--xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>New Beer</h1>
+                        </div>
+                    </div>
+                </div>
+</section>
+<section class="space--xs">
+    <div class="container">
+        <%= render 'form', beer: @beer %>
+    </div>
+</section>
 
 <%= link_to 'Back', beers_path %>

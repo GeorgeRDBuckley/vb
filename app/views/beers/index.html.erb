@@ -1,17 +1,42 @@
 <%- title "Which of these beers are vegan?" %>
+<div class="main-container">
+  <%= render 'layouts/searchbar' %>
 
-<h1>Beers</h1>
+  <section class="space--xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Beers</h1>
+                            <ol class="breadcrumbs">
+                                <li><a href="#">Home</a></li>
+                                <li>Beers</li>
+                            </ol>
+                            <hr> </div>
+                    </div>
+                </div>
+            </section>
 
-<div class="row">
-<% @beers.each do |beer| %>
-<div class="card" style="width: 18rem;">
-    <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
-      <img class="card-img-top" src="<%= beer.beer_image.thumb %>" alt="Card image cap">
-      <div class="card-body <%= vegan_border_colour(beer) %>">
-        <h5 class="card-title"><%= beer.name %></h5>
-        <p class="card-text"><%= beer.brewery.name %></p>
-      </div>
-    <% end %>
-    </div>
- <% end %>
-</div>
+            <section class="bg--secondary">
+                <div class="container">
+                    <div class="masonry">
+                        <div class="masonry__container row masonry--active">
+                        <% @beers.each do |beer| %>
+                            <div class="col-md-4 masonry__item">
+                                <div class="card card-2 text-center">
+                                    <div class="card__top">
+                                        <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
+                                          <img alt="Image" src="<%= beer.beer_image.thumb %>">
+                                        <% end %>
+                                    </div>
+                                    <div class="card__body">
+                                      <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
+                                        <h4><%= beer.name %></h4> <span class="type--fade"><%= beer.brewery.name %></span>
+                                      <% end %>
+                                    </div>
+                                </div>
+                            </div>
+                        <% end %>
+                        </div>
+                    </div>
+                </div>
+            </section>

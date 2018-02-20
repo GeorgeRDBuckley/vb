@@ -1,48 +1,75 @@
-<div class="row">
-  <div class="col-lg-3 order-lg-1 col-md-12 order-md-2 col-sm-12 order-sm-2 col-12 order-2">
-    <%= render 'sidebar' %>
-  </div>
-<div class="col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 order-sm-1 col-12 order-1">
-<div class="home-items">
-  <h1>Beers</h1>
+<div class="main-container">
+            <section class="text-center bg--primary space--sm">
+                <div class="container">
+                    <div class="row mb-4 justify-content-center">
+                        <h2>Search over 200,000 beers</h2>
+                    </div>
+                    <form class="row justify-content-center" action="/search">
+                        <div class="col-lg-6 col-md-8"> <input class="validate-required validate-email" type="text" name="query" placeholder="Search for beers &amp; breweries"> </div>
+                        <div class="col-lg-2 col-md-4"> <button type="submit" class="btn btn--secondary search-button-text">Search</button> </div>
+                        <div style="position: absolute; left: -5000px" aria-hidden="true"> <input type="text" name="b_77142ece814d3cff52058a51f_f300c9cce8" tabindex="-1" value=""> </div>
+                    </form>
+                </div>
+            </section>
 
-  <div class="row">
-    <% @beers.each do |beer| %>
-      <div class="col-md-3 col-6 text-center margin_10_10">
-        <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
-          <img src="<%= beer.beer_image.thumb %>" alt="<%= beer.name %>, <%= beer.brewery.name %>" class="img-thumbnail <%= vegan_border_colour(beer) %>">
-        <% end %>
-      </div>
-    <% end %>
-    <div class="col-md-3 col-6 text-center margin_10_10">
-      <div class="view-more">
-          <div class="view-more-button">
-            <%= link_to "View More", breweries_path, class: "btn btn-view-more" %>
-          </div>
-      </div>
-    </div>
-  </div>
-</div>
+            <section class="text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-lg-8">
+                            <h1>Beers</h1>
+                            <p class="lead"> Stack's visual style is simple yet distinct, making it an ideal starting point for your project whether it be a basic marketing site, or multi-page company presence. </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-<div class="home-items">
-  <h1>Breweries</h1>
+            <section class="text-center bg--secondary space--xxs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="slider" data-arrows="false" data-paging="true">
+                                <ul class="slides">
+                                <% @beers.each do |beer| %>
+                                  <li class="col-md-6 col-12">
+                                    <div class="project-thumb">
+                                    <a href="#"> <img alt="Image" class="border--round" src="<%= beer.beer_image.carousel %>"> </a>
+                                    <h4><%= beer.name %></h4> <span><%= beer.brewery.name %></span> </div>
+                                  </li>
+                                <% end %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-  <div class="row">
-    <% @breweries.each do |brewery| %>
-      <div class="col-md-3 col-6 text-center margin_10_10 brewery-home">
-        <%= link_to main_brewery_path(brewery.slug) do %>
-          <img src="<%= brewery.brewery_logo.thumb %>" alt="<%= brewery.name %>" class="img-thumbnail" style="<%= brewery_colour_border(brewery) %>">
-        <% end %>
-      </div>
-    <% end %>
-    <div class="col-md-3 col-6 text-center margin_10_10">
-      <div class="view-more">
-          <div class="view-more-button">
-            <%= link_to "View More", beers_path, class: "btn btn-view-more" %>
-          </div>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
-</div>
+            <section class="text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-lg-8">
+                            <h1>Breweries</h1>
+                            <p class="lead"> Stack's visual style is simple yet distinct, making it an ideal starting point for your project whether it be a basic marketing site, or multi-page company presence. </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="text-center bg--secondary space--xxs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="slider" data-arrows="false" data-paging="true">
+                                <ul class="slides">
+                                <% @breweries.each do |brewery| %>
+                                  <li class="col-md-6 col-12">
+                                    <div class="project-thumb">
+                                    <a href="#"> <img alt="Image" class="border--round" src="<%= brewery.brewery_logo.carousel %>"> </a>
+                                    <h4><%= brewery.name %></h4></div>
+                                  </li>
+                                <% end %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>

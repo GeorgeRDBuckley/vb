@@ -21,6 +21,11 @@ class BreweryLogoUploader < CarrierWave::Uploader::Base
     process resize_and_pad: [400, 400, "#ffffff", "Center"]
   end
 
+  version :carousel do
+    process :resize_to_fit => [150, 150]
+    process resize_and_pad: [400, 200, "#ffffff", "Center"]
+  end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:

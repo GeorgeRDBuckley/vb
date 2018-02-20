@@ -1,52 +1,103 @@
 <%- title "Are #{@brewery.name} Beers Vegan?" %>
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
-    <li class="breadcrumb-item"><%= link_to "Breweries", breweries_path %></li>
-    <li class="breadcrumb-item active"><%= link_to @brewery.name, main_brewery_path(@brewery) %></li>
-  </ol>
-</nav>
 
-<div class="row">
-  <div class="col-md-3">
-    <%= render 'brewery-show-sidebar' %>
-  </div>
-<div class="col-md-9 content-margin">
-<p>
-  <%= @brewery.description.html_safe %>
-</p>
+<div class="main-container">
+  <%= render 'layouts/searchbar' %>
 
+  <section class="space--xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1><%= @brewery.name %></h1>
+                            <ol class="breadcrumbs">
+                                <li><a href="#">Home</a></li>
+                                <li><%= link_to "Breweries", breweries_path %></li>
+                                <li><%= link_to @brewery.name, main_brewery_path(@brewery.slug) %></li>
+                            </ol>
+                            <hr> </div>
+                    </div>
+                </div>
+            </section>
 
-<h1>Beers</h1>
-
-<div class="row">
-   <% @brewery.beers.each do |beer| %>
-      <div class="col-md-3 text-center margin_10_10">
-      <div class="hovereffect">
-        <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
-          <img src="<%= beer.beer_image %>" alt="<%= beer.name %>, <%= beer.brewery.name %>" class="img-thumbnail <%= vegan_border_colour(beer) %>">
-          <div class="overlay">
-               <h2 class="beer-name-hover"><%= beer.name %></h2>
-            </div>
-        <% end %>
-      </div>
-      </div>
-    <% end %>
-</p>
-  </div>
-<% if @brewery.geocoded? %>
-  <h1>Nearby Breweries</h1>
-  <% @brewery.nearbys(100).each do |brewery| %>
+<section class="bg--secondary">
+  <div class="container">
     <div class="row">
-      <div class="col-md-3 text-center margin_10_10 brewery-home">
-        <%= link_to main_brewery_path(brewery.slug) do %>
-          <img src="<%= brewery.brewery_logo %>" alt="<%= brewery.name %>" class="img-thumbnail" style="<%= brewery_colour_border(brewery) %>">
+      <div class="col-md-4 col-lg-3">
+        <div class="card card-2 text-center" style="margin-bottom: 3em;">
+          <div class="card__top">
+            <a href="#"> <img alt="Image" src="<%= @brewery.brewery_logo.thumb %>"> </a>
+          </div>
+        </div>
+        <div class="text-block">
+          <h5> <%= percentage_vegan(@brewery) %> of Beers Vegan </h5>
+        </div>
+        <div class="text-block">
+          <h5>City</h5>
+          <p> <%= @brewery.city %>, <%= @brewery.country %> </p>
+        </div>
+        <div class="text-block">
+          <h5>Website</h5>
+          <p> <%= @brewery.website %> </p>
+        </div>
+        <div class="text-block">
+          <h5>Social Media</h5>
+          <p style="font-size: 3em;"> 
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-twitter-square"></i>
+            <i class="fab fa-instagram"></i>
+          </p>
+        </div>
+      </div>
+      <div class="col-md-8 col-lg-9">
+        <h1>Beers.</h1>
+        
+        <% @brewery.beers.each do |beer| %>
+        <div class="masonry__item col-md-4" style="padding-right: 15px;">
+          <div class="card card-2 text-center">
+            <div class="card__top">
+              <a href="#"> <img alt="Image" src="<%= beer.beer_image.thumb %>"> </a>
+            </div>
+            <div class="card__body">
+              <h4><%= beer.name %></h4></div>
+            </div>
+          </div>
         <% end %>
+
       </div>
     </div>
+  </div>
+</section>
+<section class="text-center space--xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-lg-8">
+                            <h1>Nearby Breweries</h1>
+                        </div>
+                    </div>
+                </div>
+</section>
+<section class="bg--secondary">
+<div class="container">
+<% if @brewery.geocoded? %>
+  <% @brewery.nearbys(100).each do |brewery| %>
+            
+                    <div class="masonry">
+                            <div class="col-md-4 masonry__item">
+                                <div class="card card-2 text-center">
+                                    <div class="card__top">
+                                        <a href="#"> <img alt="Image" src="<%= brewery.brewery_logo %>"> </a>
+                                    </div>
+                                    <div class="card__body">
+                                        <h4><%= brewery.name %></h4> <span class="type--fade"><%= brewery.city %>, <%= brewery.country %></span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
   <% end %>
-<% end %>  
+<% end %>
+</div>
+            </section>
+
 
 <%= link_to 'Edit', edit_brewery_path(@brewery.id) %> |
 <%= link_to 'Back', breweries_path %>
-</div>
+<%= link_to 'Destroy', brewery_path(@brewery), method: :delete, data: { confirm: 'Are you sure?' } %>

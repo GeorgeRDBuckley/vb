@@ -1,18 +1,41 @@
 <%- title "Which of these breweries are vegan?" %>
+<div class="main-container">
+  <%= render 'layouts/searchbar' %>
 
-<h1>Breweries</h1>
+  <section class="space--xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Breweries</h1>
+                            <ol class="breadcrumbs">
+                                <li><a href="#">Home</a></li>
+                                <li>Breweries</li>
+                            </ol>
+                            <hr> </div>
+                    </div>
+                </div>
+            </section>
 
-<div class="row">
-<% @breweries.each do |brewery| %>
-  
-    <div class="card" style="width: 18rem; <%= brewery_colour_border(brewery) %>">
-    <%= link_to main_brewery_path(brewery.slug) do %>
-      <img class="card-img-top" src="<%= brewery.brewery_logo %>" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%= brewery.name %></h5>
-        <p class="card-text"><%= brewery.city %>, <%= brewery.country %></p>
-      </div>
-    <% end %>
-    </div>
-<% end %>
-</div>
+            <section class="bg--secondary">
+                <div class="container">
+                    <div class="masonry">
+                        <div class="masonry__container row masonry--active">
+                        <% @breweries.each do |brewery| %>
+                        
+                            <div class="col-md-4 masonry__item">
+                                <div class="card card-2 text-center">
+                                    <div class="card__top">
+                                        <%= link_to main_brewery_path(brewery.slug) do %><img alt="Image" src="<%= brewery.brewery_logo %>"><% end %>
+                                    </div>
+                                    <div class="card__body">
+                                    <%= link_to main_brewery_path(brewery.slug) do %>
+                                        <h4><%= brewery.name %></h4> <span class="type--fade"><%= brewery.city %>, <%= brewery.country %></span> </div>
+                                    <% end %>
+                                </div>
+                            </div>
+                        
+                        <% end %>
+                        </div>
+                    </div>
+                </div>
+            </section>

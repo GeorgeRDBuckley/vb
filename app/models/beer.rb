@@ -1,5 +1,5 @@
 class Beer < ApplicationRecord
-    has_many :beer_likes
+    has_many :beer_likes, dependent: :destroy
     has_many :likers, foreign_key: "beer_id", class_name: "BeerLike", dependent: :destroy
     has_many :users, through: :beer_likes, dependent: :destroy
     before_save :update_beer_slug

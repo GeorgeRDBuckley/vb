@@ -1,4 +1,27 @@
 <%- title "Is #{@beer.name} by #{@beer.brewery.name} Vegan?" %>
+<div class="main-container">
+  <%= render 'layouts/searchbar' %>
+
+  <section class="space--xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1><%= @beer.name %> by <%= @beer.brewery.name %></h1>
+                            <ol class="breadcrumbs">
+                                <li><a href="#">Home</a></li>
+                                <li><%= link_to "Breweries", breweries_path %></li>
+                                <li><%= link_to @beer.brewery.name, main_brewery_path(@beer.brewery.slug) %></li>
+                                <li><%= link_to @beer.name, main_beer_path(@beer) %></li>
+                            </ol>
+                            <hr> </div>
+                    </div>
+                </div>
+            </section>
+
+<section class="bg--secondary">
+    <div class="container">
+    </div>
+</section>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>

@@ -1,63 +1,79 @@
+<div class="nav-container">
+            <div>
+                <div class="bar bar--sm visible-xs bg--dark">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 col-md-2 Aligner">
+                                <%= link_to root_path do %>
+                                <div class="row logo-style mobile-logo">
+                                <div class="logo_icon">🍺 </div>
+                                <div class="logo_name">Is It Vegan Beer?</div>
+                                </div>
+                                <% end %>
+                            </div>
+                            <div class="col-6 col-md-10 text-right">
+                                <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs hidden-sm"> <i class="icon icon--sm stack-interface stack-menu"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <nav id="menu1" class="bar bar-1 hidden-xs bg--dark">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 hidden-xs col-md-4 Aligner">
+                                <div class="bar__module">
+                                <%= link_to root_path do %>
+                                  <div class="row logo-style">
+                                    <div class="logo_icon">🍺 </div>
+                                    <div class="logo_name">Is It Vegan Beer?</div>  
+                                  </div>
+                                  <% end %> 
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-12 text-right text-left-xs text-left-sm">
+                                <div class="bar__module">
+                                    <ul class="menu-horizontal text-left">
+                                        <li>
+                                            <%= link_to "Beers", beers_path %>
+                                        </li>
+                                        <li>
+                                            <%= link_to "Breweries", breweries_path %>
+                                        </li>
+                                    <% if user_signed_in? %>
+                                      <% if current_user.try(:admin?) %>
+                                        <li>
+                                            <%= link_to "New Beer", new_beer_path %>
+                                        </li>
+                                        <li>
+                                            <%= link_to "New Brewery", new_brewery_path %>
+                                        </li>
+                                      <% end %>
+                                    <% end %>
+                                    </ul>
+                                </div>
+                                <div class="bar__module">
+                                 <% if user_signed_in? %>
+                                  <a class="btn btn--sm type--uppercase" href="#customise-template"> <span class="btn__text">
+                                    My Account
+                                </span> </a>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <%= link_to root_path, class: "navbar-brand logo" do %>
-    <div class="logo_icon">🍺</div>
-    <div class="logo_name">Is It Vegan Beer?</div>
-  <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Breweries", breweries_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Beers", beers_path, class: "nav-link" %>
-      </li>
-      <% if user_signed_in? %>
-        <% if current_user.try(:admin?) %>
-        |
-        <li class="nav-item">
-          <%= link_to "New Beer", new_beer_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "New Brewery", new_brewery_path, class: "nav-link" %>
-        </li>
-        <% end %>
-      <% end %>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item search-icon-container" onclick="showSearch();">
-        <i id="search-icon" class="fas fa-search search-icon"></i>
-      </li>
-      <form name='form' action='/search' method='get' class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type='text' name='query' placeholder="Search for beer or brewery">
-      </form>
-    <% if user_signed_in? %>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          My Account
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "View Profile", show_profile_path(current_user.username), class: "dropdown-item" %>
-          <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+                                    <%= link_to destroy_user_session_path, method: :delete, class: "btn btn--sm btn--primary type--uppercase" do %>
+                                    <span class="btn__text">
+                                    Sign Out
+                                    <% end %>
+                                </span> </a>
+                                 <% else %>
+                                    <%= link_to new_user_session_path, class: "btn btn--sm type--uppercase" do %><span class="btn__text">
+                                    Login
+                                </span> <% end %>
+                                    <%= link_to new_user_registration_path, class: "btn btn--sm btn--primary type--uppercase" do %> <span class="btn__text">
+                                    Sign Up
+                                </span> <% end %>
+                                <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         </div>
-      </li>
-      <li class="nav-item">
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link btn btn-nav-sign-up" %>
-      </li>
-    <% else %>
-    <li class="nav-item">
-      <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
-    </li>
-    <li class="navbar-item">
-      <%= link_to "Sign Up", new_user_registration_path, class: "nav-link btn btn-nav-sign-up" %>
-    </li>
-    <% end %>
-  </ul>
-  </div>
-</nav>
