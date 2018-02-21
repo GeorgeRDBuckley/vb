@@ -1,0 +1,39 @@
+<div class="main-container">
+  <%= render 'layouts/searchbar' %>
+
+  <section class="space--xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1><%= @brewery_token.name %> Admin</h1>
+                            <hr> </div>
+                    </div>
+                </div>
+            </section>
+<section class="bg--secondary">
+                <div class="container">
+                    <div class="masonry">
+                        <div class="masonry__container row masonry--active">
+                        <% @brewery_token.beers.each do |beer| %>
+                            <div class="col-md-4 masonry__item">
+                                <div class="card card-2 text-center">
+                                    <div class="card__top">
+                                        <%= link_to brewery_edit_path(beer.brewery.slug, beer.slug) do %>
+                                          <img alt="Image" src="<%= beer.beer_image.thumb %>">
+                                        <% end %>
+                                    </div>
+                                    <div class="card__body">
+                                      <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
+                                        <h4><%= beer.name %></h4> <span class="type--fade"><%= beer.brewery.name %></span>
+                                      <% end %>
+                                    </div>
+                                </div>
+                            </div>
+                        <% end %>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+<%= session[:brewery_id] %>

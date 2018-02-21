@@ -1,0 +1,70 @@
+<%= form_with(model: @beer, local: true) do |form| %>
+  <% if beer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
+
+      <ul>
+      <% beer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :beer_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :style %>
+    <%= form.text_field :style, id: :beer_style %>
+  </div>
+
+  <div class="field">
+    <%= form.label :abv %>
+    <%= form.text_field :abv, id: :beer_abv %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :beer_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :beer_image %>
+    <%= form.file_field :beer_image, id: :brewery_brewery_logo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_vegan %>
+    <%= form.check_box :is_vegan, id: :beer_is_vegan %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_vegetarian %>
+    <%= form.check_box :is_vegetarian, id: :beer_is_vegetarian %>
+  </div>
+
+  <div class="field">
+    <%= form.label :organic %>
+    <%= form.check_box :organic, id: :beer_organic %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gluten_free %>
+    <%= form.check_box :gluten_free, id: :beer_gluten_free %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alcohol_free %>
+    <%= form.check_box :alcohol_free, id: :beer_alcohol_free %>
+  </div>
+
+  <%= form.hidden_field :brewery_confirmed, value: true %>
+  <%= form.hidden_field :brewery_confirmed_at, value: Date.today %>
+  <br />
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

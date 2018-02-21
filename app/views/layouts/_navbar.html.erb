@@ -49,6 +49,13 @@
                                         </li>
                                       <% end %>
                                     <% end %>
+                                    <% if session[:token].present? %>
+                                        <li>
+                                            <%= link_to brewery_admin_path(session[:brewery], session[:token]), class: "btn btn--sm btn--secondary type--uppercase", style: "color: black !important; opacity: 1;" do %><span class="btn__text" style="color: black !important;">
+                                    Brewery Admin
+                                </span> <% end %>
+                                        </li>
+                                    <% end %>
                                     </ul>
                                 </div>
                                 <div class="bar__module">

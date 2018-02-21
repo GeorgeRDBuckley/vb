@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218093258) do
+ActiveRecord::Schema.define(version: 20180221194724) do
 
   create_table "beer_likes", force: :cascade do |t|
     t.integer "user_id"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20180218093258) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.integer "brewery_id"
+    t.boolean "brewery_confirmed", default: false
+    t.datetime "brewery_confirmed_at"
     t.index ["brewery_id"], name: "index_beers_on_brewery_id"
   end
 
@@ -71,6 +73,7 @@ ActiveRecord::Schema.define(version: 20180218093258) do
     t.string "facebook"
     t.string "instagram"
     t.string "twitter"
+    t.string "token"
   end
 
   create_table "users", force: :cascade do |t|

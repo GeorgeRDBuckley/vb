@@ -3,6 +3,7 @@ class Beer < ApplicationRecord
     has_many :likers, foreign_key: "beer_id", class_name: "BeerLike", dependent: :destroy
     has_many :users, through: :beer_likes, dependent: :destroy
     before_save :update_beer_slug
+    
 
     mount_uploader :beer_image, BeerImageUploader, mount_on: :beer_image_file_name
     belongs_to :brewery

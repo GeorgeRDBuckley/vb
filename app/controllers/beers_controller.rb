@@ -89,7 +89,7 @@ class BeersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def beer_params
-      params.require(:beer).permit(:name, :style, :abv, :description, :beer_image, :is_vegan, :is_vegetarian, :filtered, :bootle_conditioned, :can_conditioned, :organic, :gluten_free, :alcohol_free, :serving_temp, :brewery_id)
+      params.require(:beer).permit(:name, :style, :abv, :description, :beer_image, :is_vegan, :is_vegetarian, :filtered, :bootle_conditioned, :can_conditioned, :organic, :gluten_free, :alcohol_free, :serving_temp, :brewery_id, :brewery_confirmed, :brewery_confirmed_at)
     end
 
     def must_be_admin

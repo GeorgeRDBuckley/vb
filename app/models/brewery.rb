@@ -10,6 +10,8 @@ class Brewery < ApplicationRecord
     geocoded_by :address
     after_validation :geocode, if: :address_changed?
 
+    before_create :add_token
+
     def address
     [address1, address2, city, county, postcode, country].compact.join(', ')
     end
@@ -21,5 +23,9 @@ class Brewery < ApplicationRecord
     def update_slug
         self.slug = name.parameterize
     end
+
+    def add_token
+        self.token = SecureRandom.hex
+      end
 
 end

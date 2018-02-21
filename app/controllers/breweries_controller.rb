@@ -3,6 +3,8 @@ class BreweriesController < ApplicationController
   before_action :set_brewery_id, only: [:edit, :update, :destroy]
   before_action :must_be_admin, only: [:edit, :new]
 
+  
+
   # GET /breweries
   # GET /breweries.json
   def index
