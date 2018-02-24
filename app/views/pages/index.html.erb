@@ -32,7 +32,7 @@
                                 <% @beers.each do |beer| %>
                                   <li class="col-md-6 col-12">
                                     <div class="project-thumb">
-                                    <a href="#"> <img alt="Image" class="border--round" src="<%= beer.beer_image.carousel %>"> </a>
+                                    <a href="#"> <img alt="Image" class="border--round" src="<%= beer.beer_image.carousel %>" style="<%= vegan_border_colour(beer) %>"> </a>
                                     <h4><%= beer.name %></h4> <span><%= beer.brewery.name %></span> </div>
                                   </li>
                                 <% end %>
@@ -63,7 +63,7 @@
                                 <% @breweries.each do |brewery| %>
                                   <li class="col-md-6 col-12">
                                     <div class="project-thumb">
-                                    <a href="#"> <img alt="Image" class="border--round" src="<%= brewery.brewery_logo.carousel %>"> </a>
+                                    <a href="#"> <img alt="Image" class="border--round" src="<%= brewery.brewery_logo.carousel %>" style="<%= brewery_colour_border(brewery) %>"> </a>
                                     <h4><%= brewery.name %></h4></div>
                                   </li>
                                 <% end %>
