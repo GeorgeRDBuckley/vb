@@ -54,3 +54,24 @@
   top: 1.23809524em;
   right: 1.23809524em;
 }
+
+.pagination {
+  display: block !important;
+}
+
+.pagination a {
+  padding: 10px;
+  font-weight: 700;
+  line-height: 23px;
+  width: 1.85714286em;
+  height: 1.85714286em;
+}
+
+.pagination .current {
+  cursor: default;
+    background: #ececec;
+    color: #aaa;
+    border: 1px solid #ececec;
+    padding: 1%;
+    margin: 1%;
+}

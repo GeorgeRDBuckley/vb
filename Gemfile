@@ -31,7 +31,7 @@ gem 'sitemap_generator'
 gem "administrate"
 gem 'administrate-field-carrierwave', '~> 0.3.0'
 
-gem 'will_paginate', '~> 3.1.0'
+gem 'kaminari'
 
 group :development, :test do
   gem 'sqlite3'

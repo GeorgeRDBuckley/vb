@@ -18,6 +18,7 @@
 
             <section class="bg--secondary">
                 <div class="container">
+                <%= will_paginate @beer %>
                     <div class="masonry">
                         <div class="masonry__container row masonry--active">
                         <% @beers.each do |beer| %>
