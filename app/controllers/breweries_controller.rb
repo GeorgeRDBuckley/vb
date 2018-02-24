@@ -8,7 +8,7 @@ class BreweriesController < ApplicationController
   # GET /breweries
   # GET /breweries.json
   def index
-    @breweries = Brewery.all.page(params[:page])
+    @breweries = Brewery.all.page(params[:page]).per(12)
   end
 
   # GET /breweries/1
