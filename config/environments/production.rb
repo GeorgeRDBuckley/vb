@@ -89,4 +89,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.paperclip_defaults = {
+  storage: :fog,
+  fog_credentials: {
+    provider: 'Google',
+      google_storage_access_key_id: ENV['google_storage_access_key_id'],
+      google_storage_secret_access_key: ENV['google_storage_secret_access_key']
+
+    # Google recommend you to use service account instead of HMAC credentials
+    # You can check other options here -> https://github.com/fog/fog-google#credentials
+  },
+  fog_directory: 'isitveganbeer-images'
+}
 end

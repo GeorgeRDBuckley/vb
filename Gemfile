@@ -12,6 +12,13 @@ gem 'bootstrap', '~> 4.0.0'
 
 gem "paperclip", "~> 5.2.1"
 gem 'carrierwave'
+gem 'fog'
+gem "fog-google"
+gem "google-api-client", "> 0.8.5", "< 0.9"
+gem "mime-types"
+
+gem "figaro"
+
 gem 'mini_magick'
 gem 'devise'
 
