@@ -61,7 +61,12 @@
     </div>
   </div>
 </section>
-
-<%= link_to 'Edit', edit_beer_path(Beer.find_by(slug: params[:id])) %> |
-<%= link_to 'Back', main_brewery_path(@beer.brewery.slug) %>
-</div>
+<section class="text-center space--xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-lg-8">
+                            <h1>Similar Beers</h1>
+                        </div>
+                    </div>
+                </div>
+</section> 
