@@ -3,7 +3,7 @@
                 <div class="bar bar--sm visible-xs bg--dark">
                     <div class="container">
                         <div class="row">
-                            <div class="col-6 col-md-2 Aligner">
+                            <div class="col-7 col-md-2 Aligner">
                                 <%= link_to root_path do %>
                                 <div class="row logo-style mobile-logo">
                                 <div class="logo_icon">🍺 </div>
@@ -11,8 +11,8 @@
                                 </div>
                                 <% end %>
                             </div>
-                            <div class="col-6 col-md-10 text-right">
-                                <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs hidden-sm"> <i class="icon icon--sm stack-interface stack-menu"></i> </a>
+                            <div class="col-5 col-md-10 text-right Aligner">
+                                <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs hidden-sm"><i class="fas fa-bars"></i></a>
                             </div>
                         </div>
                     </div>
@@ -49,13 +49,6 @@
                                         </li>
                                       <% end %>
                                     <% end %>
-                                    <% if session[:token].present? %>
-                                        <li>
-                                            <%= link_to brewery_admin_path(session[:brewery], session[:token]), class: "btn btn--sm btn--secondary type--uppercase", style: "color: black !important; opacity: 1;" do %><span class="btn__text" style="color: black !important;">
-                                    Brewery Admin
-                                </span> <% end %>
-                                        </li>
-                                    <% end %>
                                     </ul>
                                 </div>
                                 <div class="bar__module">
@@ -69,6 +62,13 @@
                                     Sign Out
                                     <% end %>
                                 </span> </a>
+                                <% elsif session[:token].present? %>
+                                    <%= link_to brewery_admin_path(session[:brewery], session[:token]), class: "btn btn--sm type--uppercase" do %><span class="btn__text">
+                                    Brewery Admin
+                                </span> <% end %>
+                                    <%= link_to clear_path, class: "btn btn--sm btn--primary type--uppercase" do %> <span class="btn__text">
+                                    Sign Out
+                                </span> <% end %>
                                  <% else %>
                                     <%= link_to new_user_session_path, class: "btn btn--sm type--uppercase" do %><span class="btn__text">
                                     Login

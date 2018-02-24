@@ -21,6 +21,9 @@ gem 'geocoder'
 gem 'searchkick'
 gem 'sitemap_generator'
 
+gem "administrate"
+gem 'administrate-field-carrierwave', '~> 0.3.0'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

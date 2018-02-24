@@ -36,3 +36,21 @@
 .footer-flag {
   font-size: 1.5em;
 }
+
+.label {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: #fff;
+  text-transform: uppercase;
+  height: 26px;
+  min-width: 65px;
+  padding: 6px 10px !important;
+  text-align: center;
+  border-radius: 50px;
+  position: absolute;
+  z-index: 3;
+  top: 1.23809524em;
+  right: 1.23809524em;
+}

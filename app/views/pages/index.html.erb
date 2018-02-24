@@ -2,9 +2,9 @@
             <section class="text-center bg--primary space--sm">
                 <div class="container">
                     <div class="row mb-4 justify-content-center">
-                        <h2>Search over 200,000 beers</h2>
+                        <h2>Search <%= beer_count_rounder %> beers & breweries</h2>
                     </div>
-                    <form class="row justify-content-center" action="/search">
+                    <form class="row justify-content-center" action="/search" style="margin-left: 0; margin-right: 0;">
                         <div class="col-lg-6 col-md-8"> <input class="validate-required validate-email" type="text" name="query" placeholder="Search for beers &amp; breweries"> </div>
                         <div class="col-lg-2 col-md-4"> <button type="submit" class="btn btn--secondary search-button-text">Search</button> </div>
                         <div style="position: absolute; left: -5000px" aria-hidden="true"> <input type="text" name="b_77142ece814d3cff52058a51f_f300c9cce8" tabindex="-1" value=""> </div>

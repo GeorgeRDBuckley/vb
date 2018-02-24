@@ -6,7 +6,7 @@ class BeersController < ApplicationController
   # GET /beers
   # GET /beers.json
   def index
-    @beers = Beer.all
+    @beers = Beer.all.order("is_vegan DESC, is_vegetarian DESC, RANDOM()")
   end
 
   # GET /beers/1
@@ -45,6 +45,9 @@ class BeersController < ApplicationController
   def update
     respond_to do |format|
       if @beer.update(beer_params)
+        if params[:commit] === "Update Details"
+          format.html { redirect_to brewery_admin_path(session[:brewery], session[:token]), notice: 'Beer was successfully updated.' }
+        end
         format.html { redirect_to main_beer_path(@beer.brewery.slug, @beer.slug), notice: 'Beer was successfully updated.' }
         format.json { render :show, status: :ok, location: @beer }
       else

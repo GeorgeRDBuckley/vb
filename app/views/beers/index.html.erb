@@ -25,7 +25,7 @@
                                 <div class="card card-2 text-center">
                                     <div class="card__top">
                                         <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
-                                          <img alt="Image" src="<%= beer.beer_image.thumb %>">
+                                          <img alt="Image" src="<%= beer.beer_image.thumb %>" style="<%= vegan_border_colour(beer) %>">
                                         <% end %>
                                     </div>
                                     <div class="card__body">

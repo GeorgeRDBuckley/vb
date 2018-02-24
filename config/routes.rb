@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :beers
+    resources :beer_likes
+    resources :breweries
+
+    root to: "users#index"
+  end
+
   resources :beers do
     member do
       get :like, :unlike

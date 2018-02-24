@@ -1,12 +1,12 @@
 module ApplicationHelper
     def vegan_border_colour(beer)
         if beer.is_vegan
-            "vegan_border"
+            "border-bottom: 2px solid #28a745;"
         else
             if beer.is_vegetarian
-                "veggie_border"
+                "border-bottom: 2px solid #f39c12;"
             else
-                "not_vegan_border"
+                "border-bottom: 2px solid #c0392b;"
             end
         end
     end

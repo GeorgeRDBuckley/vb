@@ -6,6 +6,7 @@ class Brewery < ApplicationRecord
 
     mount_uploader :brewery_logo, BreweryLogoUploader, mount_on: :brewery_logo_file_name
     has_many :beers, :dependent => :destroy
+    accepts_nested_attributes_for :beers
 
     geocoded_by :address
     after_validation :geocode, if: :address_changed?

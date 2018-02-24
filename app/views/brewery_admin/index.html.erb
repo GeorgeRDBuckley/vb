@@ -18,14 +18,30 @@
                             <div class="col-md-4 masonry__item">
                                 <div class="card card-2 text-center">
                                     <div class="card__top">
-                                        <%= link_to brewery_edit_path(beer.brewery.slug, beer.slug) do %>
                                           <img alt="Image" src="<%= beer.beer_image.thumb %>">
-                                        <% end %>
                                     </div>
                                     <div class="card__body">
-                                      <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
-                                        <h4><%= beer.name %></h4> <span class="type--fade"><%= beer.brewery.name %></span>
+                                        <h4><%= beer.name %></h4>
+                                        <hr>
+                                    <% if !beer.brewery_confirmed %>
+                                      
+                                      <h4> Quick Edit </h4>
+                                      <%= render 'quick-edit', beer: beer %>
+                                      <% else %>
+                                      <br />
+                                      <h6>Confirmed: <%= beer.brewery_confirmed_at.strftime("%d/%m/%Y") %></h6>
                                       <% end %>
+                                      <hr>
+                                      <%= link_to brewery_edit_path(beer.brewery.slug, beer.slug), class: "btn btn--sm type--uppercase" do %>
+                                      <span class="btn__text">
+                                    Edit all details
+                                </span>
+                                <% end %>
+                                <%= link_to main_beer_path(beer.brewery.slug, beer.slug), class: "btn btn--sm type--uppercase" do %>
+                                      <span class="btn__text">
+                                    View
+                                </span>
+                                <% end %>
                                     </div>
                                 </div>
                             </div>

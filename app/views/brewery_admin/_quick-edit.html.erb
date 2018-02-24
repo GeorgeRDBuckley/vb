@@ -1,0 +1,31 @@
+<%= form_with(model: beer, local: true) do |form| %>
+  <% if beer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
+
+      <ul>
+      <% beer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :is_vegan %>
+    <%= form.select :is_vegan, [['Yes', true], ['No', false]] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_vegetarian %>
+    <%= form.select :is_vegetarian, [['Yes', true], ['No', false]] %>
+  </div>
+
+  <%= form.hidden_field :brewery_confirmed, value: true %>
+  <%= form.hidden_field :brewery_confirmed_at, value: Date.today %>
+  <br />
+
+  <div class="actions">
+    <%= form.submit "Update Details" %>
+  </div>
+<% end %>

@@ -22,15 +22,29 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 col-lg-3">
-        <div class="card card-2 text-center" style="margin-bottom: 3em;">
+        <div class="card card-2 text-center" style="margin-bottom: 3em; <%= vegan_border_colour(@beer) %>">
           <div class="card__top">
             <a href="#"> <img alt="Image" src="<%= @beer.beer_image.thumb %>"> </a>
           </div>
         </div>
-        <div class="text-block">
-          <h5>Vegan?</h5>
-          <p> <%= @beer.is_vegan %> </p>
-        </div>
+        <% if @beer.brewery_confirmed %>
+          <div class="text-block">
+              <i class="fas fa-check"></i> Brewery Confirmed
+          </div>
+        <% end %>
+        <% if @beer.is_vegan %>
+          <div class="text-block" style="margin-top: -0.5em;">
+              🌱 Vegan
+          </div>
+        <% elsif @beer.is_vegetarian %>
+          <div class="text-block" style="margin-top: -0.5em;">
+              <span class="vegetarianicon">Ⓥ</span> Vegetarian
+          </div>
+         <% else %>
+          <div class="text-block" style="margin-top: -0.5em;">
+              <i class="fas fa-times"></i> Not Vegan
+          </div>
+        <% end %>
         <div class="text-block">
           <h5>Style</h5>
           <p> <%= @beer.style %> </p>
@@ -38,10 +52,6 @@
         <div class="text-block">
           <h5>ABV</h5>
           <p> <%= @beer.abv %>%</p>
-        </div>
-        <div class="text-block">
-          <h5>Confirmed</h5>
-          <p> <%= @beer.brewery_confirmed %> </p>
         </div>
       </div>
       <div class="col-md-8 col-lg-9">

@@ -84,7 +84,7 @@
   <div class="form-group">
     <div class="field">
       <%= form.label :brewery_id %>
-      <%= form.select :brewery_id, Brewery.all.map { |brewery| [brewery.name, brewery.id]} , class: "form-control" %>
+      <%= form.text_field :brewery_id, class: "form-control" %>
     </div>
   </div>
 
