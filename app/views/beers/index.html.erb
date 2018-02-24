@@ -18,7 +18,7 @@
 
             <section class="bg--secondary">
                 <div class="container">
-                <%= paginate @beer %>
+                <%= paginate(@beers) %>
                     <div class="masonry">
                         <div class="masonry__container row masonry--active">
                         <% @beers.each do |beer| %>
@@ -39,7 +39,7 @@
                         <% end %>
                         </div>
                     </div>
-                    <%= paginate @beer %>
+                    <%= paginate(@beers) %>
                 </div>
             </section>
 
