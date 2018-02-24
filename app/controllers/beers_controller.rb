@@ -6,7 +6,7 @@ class BeersController < ApplicationController
   # GET /beers
   # GET /beers.json
   def index
-    @beers = Beer.all.order("is_vegan DESC, is_vegetarian DESC, RANDOM()")
+    @beers = Beer.all.order("is_vegan DESC, is_vegetarian DESC, RANDOM()").paginate(:page => params[:page], :per_page => 3)
   end
 
   # GET /beers/1
