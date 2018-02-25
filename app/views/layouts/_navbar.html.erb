@@ -42,10 +42,10 @@
                                     <% if user_signed_in? %>
                                       <% if current_user.try(:admin?) %>
                                         <li>
-                                            <%= link_to "New Beer", new_beer_path %>
+                                            <%= link_to "New Beer", new_admin_beer_path %>
                                         </li>
                                         <li>
-                                            <%= link_to "New Brewery", new_brewery_path %>
+                                            <%= link_to "New Brewery", new_admin_brewery_path %>
                                         </li>
                                       <% end %>
                                     <% end %>
@@ -53,9 +53,27 @@
                                 </div>
                                 <div class="bar__module">
                                  <% if user_signed_in? %>
-                                  <a class="btn btn--sm type--uppercase" href="#customise-template"> <span class="btn__text">
-                                    My Account
-                                </span> </a>
+                                 <li class="dropdown btn btn--sm type--uppercase" style="transform: none; -webkit-transform: none;"> <span class="dropdown__trigger btn__text">
+                                        My Account
+                                    </span>
+                                            <div class="dropdown__container">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="dropdown__content col-lg-2">
+                                                            <ul class="menu-vertical">
+                                                                <li><%= link_to "Show Profile", show_profile_path(current_user.username) %></li>
+                                                                <hr/>
+                                                                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                                                                <% if current_user.try(:admin?) %>
+                                                                <hr/>
+                                                                <li><%= link_to "Admin", admin_root_path %></li>
+                                                                <% end %>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
 
                                     <%= link_to destroy_user_session_path, method: :delete, class: "btn btn--sm btn--primary type--uppercase" do %>
                                     <span class="btn__text">
