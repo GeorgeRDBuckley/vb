@@ -4,6 +4,8 @@ class User < ApplicationRecord
         :thumb => "-gravity center -background white -extent 200x200", :large => "-gravity center -background white -extent 400x400" }, :default_url => "/images/:style/missing.png"
     validates_attachment_content_type :profile_img, content_type: /\Aimage\/.*\Z/
   
+    has_many :comments, dependent: :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

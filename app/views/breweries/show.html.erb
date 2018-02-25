@@ -3,7 +3,7 @@
 <div class="main-container">
   <%= render 'layouts/searchbar' %>
 
-  <section class="space--xs">
+  <section class="space--xxs">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -12,13 +12,12 @@
                                 <li><a href="#">Home</a></li>
                                 <li><%= link_to "Breweries", breweries_path %></li>
                                 <li><%= link_to @brewery.name, main_brewery_path(@brewery.slug) %></li>
-                            </ol>
-                            <hr> </div>
+                            </ol></div>
                     </div>
                 </div>
             </section>
 
-<section class="bg--secondary">
+<section class="bg--secondary space--xxs">
   <div class="container">
     <div class="row">
       <div class="col-md-4 col-lg-3">
@@ -27,27 +26,45 @@
             <a href="#"> <img alt="Image" src="<%= @brewery.brewery_logo.thumb %>" style=" <%= brewery_colour_border(@brewery) %>"> </a>
           </div>
         </div>
-        <div class="text-block">
+        <div class="text-block side-bar-info">
           <h5> <%= percentage_vegan(@brewery) %> of Beers Vegan </h5>
         </div>
-        <div class="text-block">
+        <div class="text-block side-bar-info">
           <h5>City</h5>
+          <hr/>
           <p> <%= @brewery.city %>, <%= @brewery.country %> </p>
         </div>
-        <div class="text-block">
+        <% if @brewery.website.present?%>
+        <div class="text-block side-bar-info">
           <h5>Website</h5>
-          <p> <%= @brewery.website %> </p>
+          <hr/>
+          <p><a href="<%= @brewery.website %>"><%= @brewery.website %></a> </p>
         </div>
-        <div class="text-block">
+        <% end %>
+        <div class="text-block side-bar-info">
           <h5>Social Media</h5>
+          <hr/>
           <p style="font-size: 3em;"> 
-            <i class="fab fa-facebook-square"></i>
-            <i class="fab fa-twitter-square"></i>
-            <i class="fab fa-instagram"></i>
+            <% if @brewery.facebook.present?%>
+            <a href="http://facebook.com/<%= @brewery.facebook %>">
+              <i class="fab fa-facebook-square"></i>
+            </a>
+            <% end %>
+            <% if @brewery.twitter.present?%>
+            <a href="http://twitter.com/<%= @brewery.twitter %>">
+              <i class="fab fa-twitter-square"></i>
+            </a>
+            <% end %>
+            <% if @brewery.instagram.present?%>
+            <a href="http://instagram.com/<%= @brewery.instagram %>">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <% end %>
           </p>
         </div>
       </div>
       <div class="col-md-8 col-lg-9">
+      <%= simple_format(@brewery.description) %>
         <h1>Beers.</h1>
         <% @brewery.beers.order("is_vegan DESC, is_vegetarian DESC, RANDOM()").each do |beer| %>
         <div class="masonry__item col-md-4" style="padding-right: 15px;">
@@ -65,7 +82,7 @@
     </div>
   </div>
 </section>
-<section class="text-center space--xs">
+<section class="text-center space--xxs">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 col-lg-8">
@@ -74,7 +91,7 @@
                     </div>
                 </div>
 </section>
-<section class="bg--secondary">
+<section class="bg--secondary space--xxs">
 <div class="container">
 <% if @brewery.geocoded? %>
   <% @brewery.nearbys(100).each do |brewery| %>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :beers do
+    resources :comments, only: [:create, :index, :destroy]
     member do
       get :like, :unlike
     end

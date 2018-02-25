@@ -2,7 +2,7 @@
 <div class="main-container">
   <%= render 'layouts/searchbar' %>
 
-  <section class="space--xs">
+  <section class="space--xxs">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -13,12 +13,12 @@
                                 <li><%= link_to @beer.brewery.name, main_brewery_path(@beer.brewery.slug) %></li>
                                 <li><%= link_to @beer.name, main_beer_path(@beer.brewery.slug, @beer.slug) %></li>
                             </ol>
-                            <hr> </div>
+                            </div>
                     </div>
                 </div>
             </section>
 
-<section class="bg--secondary">
+<section class="bg--secondary space--xxs">
   <div class="container">
     <div class="row">
       <div class="col-md-4 col-lg-3">
@@ -27,30 +27,51 @@
             <a href="#"> <img alt="Image" src="<%= @beer.beer_image.thumb %>"> </a>
           </div>
         </div>
+        <div class="text-block side-bar-info">
+<% if user_signed_in? %>
+  <% if liked %>
+    <%= link_to unlike_beer_path(@beer),
+                          id: "like_#{@beer.id}",
+                          class: "glyphicon glyphicon-heart" do %>
+                            <i class="fas fa-heart" style="color: #c0392b"> </i> <%= @beer.likers.count %>
+                          <% end %>
+  <% else %>
+    <%= link_to like_beer_path(@beer),
+                          id: "like_#{@beer.id}",
+                          class: "glyphicon glyphicon-heart-empty" do %>
+                            <i class="fas fa-heart"> </i> <%= @beer.likers.count %>
+                          <% end %>
+  <%end%>
+<% else %>
+  <i class="fas fa-heart" style="color: #c0392b"></i> <%= @beer.likers.count %>
+<% end %>
+</div>
         <% if @beer.brewery_confirmed %>
-          <div class="text-block">
+          <div class="text-block side-bar-info">
               <i class="fas fa-check"></i> Brewery Confirmed
           </div>
         <% end %>
         <% if @beer.is_vegan %>
-          <div class="text-block" style="margin-top: -0.5em;">
+          <div class="text-block side-bar-info" style="margin-top: -0.5em;">
               🌱 Vegan
           </div>
         <% elsif @beer.is_vegetarian %>
-          <div class="text-block" style="margin-top: -0.5em;">
+          <div class="text-block side-bar-info" style="margin-top: -0.5em;">
               <span class="vegetarianicon">Ⓥ</span> Vegetarian
           </div>
          <% else %>
-          <div class="text-block" style="margin-top: -0.5em;">
+          <div class="text-block side-bar-info" style="margin-top: -0.5em;">
               <i class="fas fa-times"></i> Not Vegan
           </div>
         <% end %>
-        <div class="text-block">
+        <div class="text-block side-bar-info">
           <h5>Style</h5>
+          <hr/>
           <p> <%= @beer.style %> </p>
         </div>
-        <div class="text-block">
+        <div class="text-block side-bar-info">
           <h5>ABV</h5>
+          <hr/>
           <p> <%= @beer.abv %>%</p>
         </div>
       </div>
@@ -61,7 +82,7 @@
     </div>
   </div>
 </section>
-<section class="text-center space--xs">
+<section class="text-center space--xxs">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 col-lg-8">
@@ -69,4 +90,23 @@
                         </div>
                     </div>
                 </div>
-</section> 
+</section>
+<section class="bg--secondary space--xxs">
+<div class="container">
+<% @similar_beers.each do |similar_beer| %>
+            
+                    <div class="masonry">
+                            <div class="col-md-3 masonry__item">
+                                <div class="card card-2 text-center">
+                                    <div class="card__top">
+                                        <a href="#"> <img alt="Image" src="<%= similar_beer.beer_image %>"> </a>
+                                    </div>
+                                    <div class="card__body">
+                                        <h4><%= similar_beer.name %></h4> <span class="type--fade"><%= similar_beer.brewery.name %></span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+  <% end %>
+  </div>
+  </section>

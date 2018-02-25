@@ -6,6 +6,8 @@ class Beer < ApplicationRecord
     mount_uploader :beer_image, BeerImageUploader, mount_on: :beer_image_file_name
     belongs_to :brewery
 
+    has_many :comments, dependent: :destroy
+
     searchkick
 
     def search_data

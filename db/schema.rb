@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221194724) do
+ActiveRecord::Schema.define(version: 20180225124833) do
 
   create_table "beer_likes", force: :cascade do |t|
     t.integer "user_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180221194724) do
     t.string "name"
     t.string "style"
     t.string "abv"
-    t.string "description"
+    t.text "description"
     t.string "beer_image_file_name"
     t.string "beer_image_content_type"
     t.integer "beer_image_file_size"

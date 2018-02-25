@@ -14,7 +14,7 @@ class BeerDashboard < Administrate::BaseDashboard
     name: Field::String,
     style: Field::String,
     abv: Field::String,
-    description: Field::String,
+    description: Field::Text,
     beer_image: Field::Carrierwave.with_options(
     image: :standard,
     multiple: false,
@@ -84,7 +84,6 @@ class BeerDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :likers,
     :brewery,
     :name,
     :style,

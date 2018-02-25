@@ -12,12 +12,12 @@
                 </div>
             </section>
 
-            <section class="text-center">
+            <section class="text-center space--sm">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 col-lg-8">
                             <h1>Beers</h1>
-                            <p class="lead"> Stack's visual style is simple yet distinct, making it an ideal starting point for your project whether it be a basic marketing site, or multi-page company presence. </p>
+                            <p class="lead">It's might be weird but your beer might be more than grain, hops, yeast and water. <br/>During the <b>making</b> breweries can add things such dairy & honey to the recipe. <br/>When filtering breweries can use things like isinglass (fish bladder,) gelatin, egg whites, and sea shells, among other things.<br/><br/>Below is a pick of some of the vegan beers on our list, alternatively use the search above to check is your beer contains any animal products.</p>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                                 <% @beers.each do |beer| %>
                                   <li class="col-md-6 col-12">
                                     <div class="project-thumb">
-                                    <a href="#"> <img alt="Image" class="border--round" src="<%= beer.beer_image.carousel %>" style="<%= vegan_border_colour(beer) %>"> </a>
+                                    <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %><img alt="Image" class="border--round" src="<%= beer.beer_image.carousel %>" style="<%= vegan_border_colour(beer) %>"><% end %>
                                     <h4><%= beer.name %></h4> <span><%= beer.brewery.name %></span> </div>
                                   </li>
                                 <% end %>
@@ -43,12 +43,12 @@
                 </div>
             </section>
 
-            <section class="text-center">
+            <section class="text-center space--sm">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 col-lg-8">
                             <h1>Breweries</h1>
-                            <p class="lead"> Stack's visual style is simple yet distinct, making it an ideal starting point for your project whether it be a basic marketing site, or multi-page company presence. </p>
+                            <p class="lead">Not all breweries are created equally.<br/>Even though many beers are vegetarian, most brewers do not reveal which beers contain animal products.<br/>We are publishing this information to make it easier for you to pick the best vegan beers, and even support breweries that don't use animal products in their beers..</p>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                                 <% @breweries.each do |brewery| %>
                                   <li class="col-md-6 col-12">
                                     <div class="project-thumb">
-                                    <a href="#"> <img alt="Image" class="border--round" src="<%= brewery.brewery_logo.carousel %>" style="<%= brewery_colour_border(brewery) %>"> </a>
+                                    <%= link_to main_brewery_path(brewery.slug) do %><img alt="Image" class="border--round" src="<%= brewery.brewery_logo.carousel %>" style="<%= brewery_colour_border(brewery) %>"><% end %>
                                     <h4><%= brewery.name %></h4></div>
                                   </li>
                                 <% end %>
