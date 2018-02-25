@@ -17,7 +17,6 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [800, 800]
   
     version :thumb do
-      process :resize_to_fit => [95, 95]
       process resize_and_pad: [104, 104, "#ffffff", "Center"]
     end
   
