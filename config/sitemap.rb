@@ -6,14 +6,14 @@ SitemapGenerator::Sitemap.create do
   Beer.find_each do |beer|
     add main_beer_path(beer.brewery.slug, beer.slug), :lastmod => beer.updated_at, 
     :images => [{
-    :loc => "#{beer.beer_image}",
+    :loc => "#{beer.beer_image.thumb}",
     :title => "Is #{beer.name} by #{beer.brewery.name} Vegan?" }]
   end
 
   Brewery.find_each do |brewery|
     add main_brewery_path(brewery), :lastmod => brewery.updated_at, 
     :images => [{
-    :loc => "#{brewery.brewery_logo}",
+    :loc => "#{brewery.brewery_logo.thumb}",
     :title => "Are #{brewery.name} beers Vegan?"}]
   end
 
