@@ -63,7 +63,7 @@
                                 <% @breweries.each do |brewery| %>
                                   <li class="col-md-6 col-12">
                                     <div class="project-thumb">
-                                    <%= link_to main_brewery_path(brewery.slug) do %><img alt="Image" class="border--round" src="<%= brewery.brewery_logo.carousel %>" style="<%= brewery_colour_border(brewery) %>"><% end %>
+                                    <%= link_to main_brewery_path(brewery.slug) do %><img alt="Image" class="border--round" src="<%= brewery.brewery_logo.carousel %>"><% end %>
                                     <h4><%= brewery.name %></h4></div>
                                   </li>
                                 <% end %>
