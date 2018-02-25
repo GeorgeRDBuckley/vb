@@ -25,6 +25,10 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
       process :resize_to_fit => [150, 150]
       process resize_and_pad: [400, 200, "#ffffff", "Center"]
     end
+
+    def default_url
+      "missing.png"
+    end
   
     # Provide a default URL as a default if there hasn't been a file uploaded:
     # def default_url(*args)
