@@ -100,7 +100,7 @@
                             <div class="col-md-3 masonry__item">
                                 <div class="card card-2 text-center">
                                     <div class="card__top">
-                                        <a href="#"> <img alt="Image" src="<%= brewery.brewery_logo %>"> </a>
+                                        <%= link_to main_brewery_path(brewery.slug) do %> <img alt="Image" src="<%= brewery.brewery_logo.thumb %>"><% end %>
                                     </div>
                                     <div class="card__body">
                                         <h4><%= brewery.name %></h4> <span class="type--fade"><%= brewery.city %>, <%= brewery.country %></span> </div>
