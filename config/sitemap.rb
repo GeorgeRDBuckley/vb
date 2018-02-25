@@ -6,14 +6,14 @@ SitemapGenerator::Sitemap.create do
   Beer.find_each do |beer|
     add main_beer_path(beer.brewery.slug, beer.slug), :lastmod => beer.updated_at, 
     :images => [{
-    :loc => "https://isitveganbeer.com#{beer.beer_image(:large)}",
+    :loc => "#{beer.beer_image}",
     :title => "Is #{beer.name} by #{beer.brewery.name} Vegan?" }]
   end
 
   Brewery.find_each do |brewery|
     add main_brewery_path(brewery), :lastmod => brewery.updated_at, 
     :images => [{
-    :loc => "https://isitveganbeer.com#{brewery.brewery_logo(:large)}",
+    :loc => "#{brewery.brewery_logo}",
     :title => "Are #{brewery.name} beers Vegan?"}]
   end
 
@@ -21,9 +21,9 @@ SitemapGenerator::Sitemap.create do
     add show_profile_path(user.username), :lastmod => user.updated_at
   end
 
-  add '/beers', :changefreq => 'monthly'
+  add '/beers', :changefreq => 'daily'
 
-  add '/breweries', :changefreq => 'monthly'
+  add '/breweries', :changefreq => 'daily'
   # Put links creation logic here.
   #
   # The root path '/' and sitemap index file are added automatically for you.
