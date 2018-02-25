@@ -8,6 +8,8 @@ class Beer < ApplicationRecord
 
     has_many :comments, dependent: :destroy
 
+    
+
     searchkick
 
     def search_data

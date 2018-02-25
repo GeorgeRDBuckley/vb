@@ -1,8 +1,6 @@
 class User < ApplicationRecord
   has_many :likes, foreign_key: "user_id", class_name: "BeerLike", dependent: :destroy
-  has_attached_file :profile_img, styles: {:thumb => "200x200", small: "64x64", med: "300x300", large: "400x400" }, :convert_options => {
-        :thumb => "-gravity center -background white -extent 200x200", :large => "-gravity center -background white -extent 400x400" }, :default_url => "/images/:style/missing.png"
-    validates_attachment_content_type :profile_img, content_type: /\Aimage\/.*\Z/
+  mount_uploader :profile_img, ProfileImageUploader, mount_on: :profile_img_file_name
   
     has_many :comments, dependent: :destroy
 

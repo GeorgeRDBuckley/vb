@@ -19,5 +19,17 @@ class ApplicationController < ActionController::Base
           session[:brewery] = @brewery_token.slug
         end
       end
+
+      def render_404
+        respond_to do |format|
+          format.html { render :file => "#{Rails.root}/public/404", :status => :not_found }
+          format.xml  { head :not_found }
+          format.any  { head :not_found }
+        end
+      end
+
+      def not_found
+        render_404
+      end      
       
 end

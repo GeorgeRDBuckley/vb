@@ -76,8 +76,33 @@
         </div>
       </div>
       <div class="col-md-8 col-lg-9">
-        <%= simple_format(@beer.description) %>
-
+        <div class="beer-description"><%= simple_format(@beer.description) %></div>
+        <section class="switchable space--xxs">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="switchable__text col-md-12">
+                            <ul class="accordion accordion-1 accordion--oneopen">
+                                <li>
+                                    <div class="accordion__title"><i class="fas fa-list-ul"> </i> <span class="h5">Ingredients</span> </div>
+                                    <div class="accordion__content">
+                                    <% if @beer.ingredients.present? %>
+                                      <p class="lead"><% @beer.ingredients %></p>
+                                    <% else %>
+                                        <p class="lead">No ingredients available</p>
+                                    <% end %>
+                                    </div>
+                                </li>
+                                <li class="active">
+                                    <div class="accordion__title"><i class="fas fa-comments"></i> <span class="h5">Comments</span> </div>
+                                    <div class="accordion__content">
+                                        <p class="lead"> Stack follows the BEM naming convention that focusses on logical code readability that is reflected in both the HTML and CSS. Interactive elements such as accordions and tabs follow the same markup patterns making rapid development easier for developers and beginners alike. </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
       </div>
     </div>
   </div>

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get :like, :unlike
     end
   end
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'registrations'}
   resources :breweries
 
   resources :users, only: [:show], as: "/users/{:username}", as: "show_profile"

@@ -2,7 +2,7 @@
 <div class="main-container">
   <%= render 'layouts/searchbar' %>
 
-  <section class="space--xs">
+  <section class="space--xxs">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -10,13 +10,12 @@
                             <ol class="breadcrumbs">
                                 <li><a href="#">Home</a></li>
                                 <li>Breweries</li>
-                            </ol>
-                            <hr> </div>
+                            </ol></div>
                     </div>
                 </div>
             </section>
 
-            <section class="bg--secondary">
+            <section class="bg--secondary space--xxs">
                 <div class="container">
                 <%= paginate(@breweries) %>
                     <div class="masonry">

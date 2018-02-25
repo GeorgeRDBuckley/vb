@@ -89,3 +89,22 @@
   border-radius: 4px;
   margin-top: -0.5em !important;
 }
+
+.accordion__title {
+  background-color: #238b53 !important;
+  border-color: #238b53 !important; 
+  color: #fff;
+}
+
+.accordion__title:before {
+  content: "" !important;
+}
+.beer-description {
+margin-top: 10px;
+margin-bottom: 1rem;
+min-height: 218px;
+}
+
+.btn--delete {
+  background-color: #c0392b !important;
+}

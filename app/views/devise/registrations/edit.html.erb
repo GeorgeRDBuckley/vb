@@ -1,102 +1,75 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<div class="main-container">
+<section class="space--xxs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Edit Profile</h1>
+                        </div>
+                    </div>
+                </div>
+</section>
+<section class="bg--secondary space--xxs">
+    <div class="container">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="form-group">
-        <%= f.label :profile_img, class: 'col-sm-2 control-label'  %>
-        <div class="col-sm-6">
+        <%= f.label :profile_img  %>
             <%= f.file_field :profile_img %>
-        </div>
-    </div>
 
-    <div class="form-group">
         <%= f.label :username, class: 'col-sm-2 control-label'  %>
-        <div class="col-sm-6">
             <%= f.text_field :username, class: 'form-control', :disabled => true  %>
-        </div>
-    </div>
 
-     <div class="form-group">
         <%= f.label :name, class: 'col-sm-2 control-label'  %>
-        <div class="col-sm-6">
             <%= f.text_field :name, class: 'form-control'  %>
-        </div>
-    </div>
 
-    <div class="form-group">
         <%= f.label :bio, class: 'col-sm-2 control-label'  %>
-        <div class="col-sm-6">
             <%= f.text_area :bio, class: 'form-control'  %>
-        </div>
-    </div>
 
-    <div class="form-group">
+
         <%= f.label :location, class: 'col-sm-2 control-label'  %>
-        <div class="col-sm-6">
             <%= f.text_field :location, class: 'form-control'  %>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :name, class: 'col-sm-2 control-label'  %>
-        <div class="col-sm-6">
-            <%= f.text_field :name, class: 'form-control'  %>
-        </div>
-    </div>
 
     <div class="form-group">
         <%= f.label :email, class: 'col-sm-2 control-label'  %>
-        <div class="col-sm-6">
             <%= f.email_field :email, class: 'form-control'  %>
-        </div>
-    </div>
 
-    <div class="field">
     <%= f.label :instagram %>
-    <%= f.text_field :instagram, id: :brewery_zip_postcode %>
-  </div>
+    <%= f.text_field :instagram, id: :user_instagram %>
 
-  <div class="field">
     <%= f.label :facebook %>
-    <%= f.text_field :facebook, id: :brewery_zip_postcode %>
+    <%= f.text_field :facebook, id: :user_facebook %>
   </div>
 
-  <div class="field">
     <%= f.label :twitter %>
-    <%= f.text_field :twitter, id: :brewery_zip_postcode %>
-  </div>
+    <%= f.text_field :twitter, id: :user_twitter %>
 
-    <div class="form-group">
-        <%= f.label :password, class: 'col-sm-2 control-label'  %> <i>(leave blank if you don't want to change it)</i>
-        <div class="col-sm-6">
-            <%= f.password_field :password, autocomplete: "off", class: 'form-control'  %>
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <%= f.label :password_confirmation, class: 'col-sm-2 control-label' %>
-        <div class="col-sm-6">
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'  %>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :current_password, class: 'col-sm-2 control-label' %> <i>(we need your current password to confirm your changes)</i>
-        <div class="col-sm-6">
-            <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
-        </div>
-    </div>
-
-
+    
+<br/><br/>
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update Details", class: "btn--primary" %>
   </div>
 <% end %>
+<br/>
+<h3>Update Password</h3>
 
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+        <%= f.label "New Password", class: 'col-sm-2 control-label'  %>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control'  %>
+
+        <%= f.label "New Password Confirm", class: 'col-sm-2 control-label' %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'  %>
+        <br/>
+        <%= f.label :current_password, class: 'col-sm-2 control-label' %> <i>(we need your current password to confirm your changes)</i>
+            <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+<br/><br/>
+  <div class="actions">
+    <%= f.submit "Update Password", class: "btn--primary" %>
+  </div>
+<% end %>
+<br />
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn--delete" %></p>
+</div>
+</section>
