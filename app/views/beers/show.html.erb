@@ -92,12 +92,6 @@
                                     <% end %>
                                     </div>
                                 </li>
-                                <li class="active">
-                                    <div class="accordion__title"><i class="fas fa-comments"></i> <span class="h5">Comments</span> </div>
-                                    <div class="accordion__content">
-                                        <p class="lead"> Stack follows the BEM naming convention that focusses on logical code readability that is reflected in both the HTML and CSS. Interactive elements such as accordions and tabs follow the same markup patterns making rapid development easier for developers and beginners alike. </p>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -124,7 +118,7 @@
                             <div class="col-md-3 masonry__item">
                                 <div class="card card-2 text-center">
                                     <div class="card__top">
-                                        <a href="#"> <img alt="Image" src="<%= similar_beer.beer_image %>"> </a>
+                                      <%= link_to main_beer_path(similar_beer.brewery.slug, similar_beer.slug) do %> <img alt="Image" src="<%= similar_beer.beer_image %>"><% end %>
                                     </div>
                                     <div class="card__body">
                                         <h4><%= similar_beer.name %></h4> <span class="type--fade"><%= similar_beer.brewery.name %></span> </div>
