@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def index
-    @breweries = Brewery.order("RANDOM()").limit(7)
-    @beers = Beer.order("is_vegan DESC, is_vegetarian DESC, RANDOM()").limit(11)
+    @breweries = Brewery.order("RANDOM()").limit(6)
+    @beers = Beer.order("is_vegan DESC, is_vegetarian DESC, RANDOM()").limit(6)
     @recent_likes = BeerLike.order("created_at DESC").limit(5)
   end
 
