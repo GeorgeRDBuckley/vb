@@ -35,6 +35,12 @@ gem 'kaminari'
 
 gem 'bootsnap', require: false
 
+gem 'rack-mini-profiler'
+gem 'redis'
+gem 'redis-namespace'
+gem 'redis-rails'
+gem 'redis-rack-cache'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

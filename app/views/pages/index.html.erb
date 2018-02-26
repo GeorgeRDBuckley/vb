@@ -29,12 +29,8 @@
                         <div class="col">
                             <div class="slider" data-arrows="false" data-paging="true">
                                 <ul class="slides">
-                                <% @beers.each do |beer| %>
-                                  <li class="col-md-6 col-12">
-                                    <div class="project-thumb">
-                                    <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %><img alt="Image" class="border--round" src="<%= beer.beer_image.carousel %>" style="<%= vegan_border_colour(beer) %>"><% end %>
-                                    <h4><%= beer.name %></h4> <span><%= beer.brewery.name %></span> </div>
-                                  </li>
+                                <% cache @beers do %>
+                                <%= render partial: 'beer', collection: @beers, cached: true %>
                                 <% end %>
                                 </ul>
                             </div>
@@ -60,12 +56,8 @@
                         <div class="col">
                             <div class="slider" data-arrows="false" data-paging="true">
                                 <ul class="slides">
-                                <% @breweries.each do |brewery| %>
-                                  <li class="col-md-6 col-12">
-                                    <div class="project-thumb">
-                                    <%= link_to main_brewery_path(brewery.slug) do %><img alt="Image" class="border--round" src="<%= brewery.brewery_logo.carousel %>"><% end %>
-                                    <h4><%= brewery.name %></h4></div>
-                                  </li>
+                                <% cache @breweries do %>
+                                <%= render partial: 'brewery', collection: @breweries, cached: true %>
                                 <% end %>
                                 </ul>
                             </div>

@@ -1,0 +1,5 @@
+<li class="col-md-6 col-12">
+                                    <div class="project-thumb">
+                                    <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %><img alt="Image" class="border--round" src="<%= beer.beer_image.carousel %>" style="<%= vegan_border_colour(beer) %>"><% end %>
+                                    <h4><%= beer.name %></h4> <span><%= beer.brewery.name %></span> </div>
+                                  </li>
