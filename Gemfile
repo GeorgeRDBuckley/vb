@@ -33,6 +33,8 @@ gem 'administrate-field-carrierwave', '~> 0.3.0'
 
 gem 'kaminari'
 
+gem 'bootsnap', require: false
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
