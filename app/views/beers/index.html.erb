@@ -1,5 +1,4 @@
 <%- title "Which of these beers are vegan?" %>
-<% cache do %>
 <div class="main-container">
   <%= render 'layouts/searchbar' %>
 
@@ -15,7 +14,7 @@
                     </div>
                 </div>
             </section>
-<% end %>
+
             <section class="bg--secondary space--xxs">
                 <div class="container">
                 <%= paginate(@beers) %>
