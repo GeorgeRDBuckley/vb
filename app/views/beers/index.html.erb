@@ -1,4 +1,5 @@
 <%- title "Which of these beers are vegan?" %>
+<% cache do %>
 <div class="main-container">
   <%= render 'layouts/searchbar' %>
 
@@ -14,16 +15,28 @@
                     </div>
                 </div>
             </section>
-
+<% end %>
             <section class="bg--secondary space--xxs">
                 <div class="container">
                 <%= paginate(@beers) %>
                     <div class="masonry">
                         <div class="masonry__container row masonry--active">
-                        <% cache @beers do %>
-                                <%= render partial: 'beer-index', collection: @beers, cached: true %>
-                                <% end %>
-                                <% end %>
+                        <% @beers.each do |beer| %>
+                            <div class="col-md-4 masonry__item">
+                                <div class="card card-2 text-center">
+                                    <div class="card__top">
+                                        <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
+                                          <img alt="Image" src="<%= beer.beer_image.thumb %>" style="<%= vegan_border_colour(beer) %>">
+                                        <% end %>
+                                    </div>
+                                    <div class="card__body">
+                                      <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
+                                        <h4><%= beer.name %></h4> <span class="type--fade"><%= beer.brewery.name %></span>
+                                      <% end %>
+                                    </div>
+                                </div>
+                            </div>
+                        <% end %>
                         </div>
                     </div>
                     <%= paginate(@beers) %>

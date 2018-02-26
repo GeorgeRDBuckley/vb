@@ -1,3 +1,4 @@
+<% cache @beer do %>
 <%- title "Is #{@beer.name} by #{@beer.brewery.name} Vegan?" %>
 <div class="main-container">
   <%= render 'layouts/searchbar' %>
@@ -28,6 +29,7 @@
           </div>
         </div>
         <div class="text-block side-bar-info">
+<% end %>
 <% if user_signed_in? %>
   <% if liked %>
     <%= link_to unlike_beer_path(@beer),
@@ -101,6 +103,7 @@
     </div>
   </div>
 </section>
+<% cache do %>
 <section class="text-center space--xxs">
                 <div class="container">
                     <div class="row">
@@ -129,3 +132,4 @@
   <% end %>
   </div>
   </section>
+  <% end %>

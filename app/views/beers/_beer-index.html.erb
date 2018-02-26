@@ -1,7 +1,7 @@
 <div class="col-md-4 masonry__item">
                                 <div class="card card-2 text-center">
                                     <div class="card__top">
-                                        <%= link_to main_beer_path(beer.brewery.slug, beer.slug) do %>
+                                        <%= link_to main_beer_path(@beers.brewery.slug, @beers.slug) do %>
                                           <img alt="Image" src="<%= beer.beer_image.thumb %>" style="<%= vegan_border_colour(beer) %>">
                                         <% end %>
                                     </div>

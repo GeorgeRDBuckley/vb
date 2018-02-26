@@ -4,7 +4,6 @@
                     <div class="row mb-4 justify-content-center">
                         <h2>Search <%= beer_count_rounder %> beers & breweries</h2>
                     </div>
-<% cache do%>
                     <form class="row justify-content-center" action="/search" style="margin-left: 0; margin-right: 0;">
                         <div class="col-lg-6 col-md-8"> <input class="validate-required validate-email" type="text" name="query" placeholder="Search for beers &amp; breweries"> </div>
                         <div class="col-lg-2 col-md-4"> <button type="submit" class="btn btn--secondary search-button-text">Search</button> </div>
@@ -12,7 +11,6 @@
                     </form>
                 </div>
             </section>
-<% end %>
 <% cache do %>
             <section class="text-center space--sm">
                 <div class="container">
