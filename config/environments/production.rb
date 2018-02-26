@@ -1,7 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.public_file_server.headers = {
-    'Cache-Control' => 'public, max-age=31536000'
+    'Cache-Control' => "public, s-maxage=#{365.days.to_i}, maxage=#{180.days.to_i}",
+    'Expires' => "#{1.year.from_now.to_formatted_s(:rfc822)}"
   }
   # Code is not reloaded between requests.
   config.cache_classes = true
