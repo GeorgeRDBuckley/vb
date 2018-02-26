@@ -29,7 +29,9 @@
                         <div class="col">
                             <div class="slider" data-arrows="false" data-paging="true">
                                 <ul class="slides">
-                                <%= render partial: 'beer', collection: @beers %>
+                                <% cache @beers do %>
+                                <%= render partial: 'beer', collection: @beers, cached: true %>
+                                <% end %>
                                 </ul>
                             </div>
                         </div>
@@ -54,7 +56,9 @@
                         <div class="col">
                             <div class="slider" data-arrows="false" data-paging="true">
                                 <ul class="slides">
-                                <%= render partial: 'brewery', collection: @breweries %>
+                                <% cache @breweries do %>
+                                <%= render partial: 'brewery', collection: @breweries, cached: true %>
+                                <% end %>
                                 </ul>
                             </div>
                         </div>
