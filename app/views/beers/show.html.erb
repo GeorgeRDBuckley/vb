@@ -112,20 +112,18 @@
 </section>
 <section class="bg--secondary space--xxs">
 <div class="container">
+<div class="row">
 <% @similar_beers.each do |similar_beer| %>
-            
-                    <div class="masonry">
-                            <div class="col-md-3 masonry__item">
-                                <div class="card card-2 text-center">
-                                    <div class="card__top">
-                                      <%= link_to main_beer_path(similar_beer.brewery.slug, similar_beer.slug) do %> <img alt="Image" src="<%= similar_beer.beer_image %>"><% end %>
-                                    </div>
-                                    <div class="card__body">
-                                        <h4><%= similar_beer.name %></h4> <span class="type--fade"><%= similar_beer.brewery.name %></span> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="masonry__item col-md-3" style="padding-right: 15px;">
+          <div class="card card-2 text-center">
+            <div class="card__top">
+              <%= link_to main_beer_path(similar_beer.brewery.slug, similar_beer.slug) do %> <img alt="Image" src="<%= similar_beer.beer_image %>"><% end %>
+            </div>
+            <div class="card__body">
+              <h4><%= similar_beer.name %></h4></div>
+            </div>
+          </div>
   <% end %>
+  </div>
   </div>
   </section>
