@@ -97,6 +97,7 @@
 <div class="container">
 <% if @brewery.geocoded? %>
 <div class="masonry">
+<div class="row">
   <% @brewery.nearbys(100).each do |brewery| %>
             
                     
@@ -112,6 +113,7 @@
                         </div>
                     
   <% end %>
+  </div>
   </div>
 <% end %>
 </div>
