@@ -97,9 +97,10 @@
 <div class="container">
 <div class="row">
 <% if @brewery.geocoded? %>
+<div class="masonry">
   <% @brewery.nearbys(100).each do |brewery| %>
             
-                    <div class="masonry">
+                    
                             <div class="col-md-3 masonry__item">
                                 <div class="card card-2 text-center">
                                     <div class="card__top">
@@ -110,8 +111,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
   <% end %>
+  </div>
 <% end %>
 </div>
 </div>
