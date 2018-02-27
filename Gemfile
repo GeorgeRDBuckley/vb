@@ -35,7 +35,6 @@ gem 'kaminari'
 
 gem 'bootsnap', require: false
 
-gem 'rack-mini-profiler'
 gem 'redis'
 gem 'redis-namespace'
 gem 'redis-rails'
