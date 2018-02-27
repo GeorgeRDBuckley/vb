@@ -15,9 +15,10 @@
     <%= render 'layouts/navbar' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
-    <link href="https://cdn-vegan-beer.storage.googleapis.com/application.min.css", media: 'all', 'data-turbolinks-track': 'reload' >
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <%= javascript_include_tag "scripts", "data-turbolinks-track" => true  %> 
   </body>
 </html>
