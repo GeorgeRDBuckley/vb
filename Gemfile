@@ -35,8 +35,6 @@ gem 'kaminari'
 
 gem 'bootsnap', require: false
 
-gem "asset_sync"
-
 gem 'redis'
 gem 'redis-namespace'
 gem 'redis-rails'

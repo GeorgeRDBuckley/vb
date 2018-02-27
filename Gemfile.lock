@@ -56,11 +56,6 @@ GEM
       administrate (< 1.0.0)
       rails (>= 4.2, < 6)
     arel (8.0.0)
-    asset_sync (2.4.0)
-      activemodel (>= 4.1.0)
-      fog-core
-      mime-types (>= 2.99)
-      unf
     autoparse (0.3.3)
       addressable (>= 2.3.1)
       extlib (>= 0.9.15)
@@ -524,7 +519,6 @@ PLATFORMS
 DEPENDENCIES
   administrate
   administrate-field-carrierwave (~> 0.3.0)
-  asset_sync
   bootsnap
   bootstrap (~> 4.0.0)
   byebug
