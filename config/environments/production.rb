@@ -1,8 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_controller.asset_host = "//#{ENV['FOG_DIRECTORY']}.storage.googleapis.com"
-  
   config.public_file_server.headers = {
     'Cache-Control' => "public, s-maxage=#{365.days.to_i}, maxage=#{180.days.to_i}",
     'Expires' => "#{1.year.from_now.to_formatted_s(:rfc822)}"
@@ -38,6 +36,8 @@ Rails.application.configure do
   config.assets.compile = false
 
   config.assets.digest = true
+
+  config.action_controller.asset_host = "//#{ENV['FOG_DIRECTORY']}.storage.googleapis.com"
 
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
