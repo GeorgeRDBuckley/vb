@@ -117,7 +117,7 @@
             <div class="masonry__item col-md-3" style="padding-right: 15px;">
           <div class="card card-2 text-center">
             <div class="card__top">
-              <%= link_to main_beer_path(similar_beer.brewery.slug, similar_beer.slug) do %> <img alt="Image" src="<%= similar_beer.beer_image %>"><% end %>
+              <%= link_to main_beer_path(similar_beer.brewery.slug, similar_beer.slug) do %> <img alt="Image" src="<%= similar_beer.beer_image.thumb %>"><% end %>
             </div>
             <div class="card__body">
               <h4><%= similar_beer.name %></h4></div>
