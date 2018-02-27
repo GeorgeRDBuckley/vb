@@ -95,7 +95,6 @@
 </section>
 <section class="bg--secondary space--xxs">
 <div class="container">
-<div class="row">
 <% if @brewery.geocoded? %>
 <div class="masonry">
   <% @brewery.nearbys(100).each do |brewery| %>
@@ -115,6 +114,5 @@
   <% end %>
   </div>
 <% end %>
-</div>
 </div>
             </section>
