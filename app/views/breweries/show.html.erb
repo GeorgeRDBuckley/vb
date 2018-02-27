@@ -96,24 +96,19 @@
 <section class="bg--secondary space--xxs">
 <div class="container">
 <% if @brewery.geocoded? %>
-<div class="masonry">
 <div class="row">
   <% @brewery.nearbys(100).each do |brewery| %>
-            
-                    
-                            <div class="col-md-3 masonry__item">
-                                <div class="card card-2 text-center">
-                                    <div class="card__top">
-                                        <%= link_to main_brewery_path(brewery.slug) do %> <img alt="Image" src="<%= brewery.brewery_logo.thumb %>"><% end %>
-                                    </div>
-                                    <div class="card__body">
-                                        <h4><%= brewery.name %></h4> <span class="type--fade"><%= brewery.city %>, <%= brewery.country %></span> </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="masonry__item col-md-4" style="padding-right: 15px;">
+          <div class="card card-2 text-center">
+            <div class="card__top">
+              <%= link_to main_brewery_path(brewery.slug) do %><img alt="Image" src="<%= brewery.brewery_logo.thumb %>"><% end %>
+            </div>
+            <div class="card__body">
+              <h4><%= brewery.name %></h4></div>
+            </div>
+          </div>
                     
   <% end %>
-  </div>
   </div>
 <% end %>
 </div>
